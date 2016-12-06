@@ -12,22 +12,22 @@ PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1
 
 @app.route('/', methods=['GET'])
 def handle_verification():
-  print("Handling Verification.")
+  #print("Handling Verification.")
   if request.args.get('hub.verify_token', '') == 'my_voice_is_my_password_verify_me':
-    print("Verification successful!")
+    #print("Verification successful!")
     return request.args.get('hub.challenge', '')
   else:
-    print("Verification failed!")
+    #print("Verification failed!")
     return "Error, wrong validation token"
 
 
 @app.route('/', methods=['POST'])
 def handle_messages():
-  logging.info("Handling Messages")
+  #logging.info("Handling Messages")
   payload = request.get_data()
   #print(payload)
   for sender, message in messaging_events(payload):
-    print("Incoming from %s: %s" % (sender, message))
+    #print("Incoming from %s: %s" % (sender, message))
     send_message(PAT, sender, message)
   return "ok"
 
@@ -56,7 +56,7 @@ def send_message(token, recipient, text):
     }),
     headers={'Content-type': 'application/json'})
   if r.status_code != requests.codes.ok:
-    print(r.text)
+    #print(r.text)
 
 if __name__ == '__main__':
   app.run()

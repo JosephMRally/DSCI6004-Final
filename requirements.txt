@@ -17,8 +17,6 @@ chest==0.2.3
 click==6.6
 cloudpickle==0.2.1
 colorama==0.3.7
-conda==4.2.13
-conda-build==1.21.3
 configobj==5.0.6
 contextlib2==0.5.3
 cryptography==1.4

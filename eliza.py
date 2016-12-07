@@ -243,16 +243,16 @@ class Eliza:
 
     def __init__(self):
         self._corpus = srt_parser.Srt_Parser()
-        self._corpus._load_episodes()
+        #self._corpus._load_episodes()
 
-    def load_corpuses(self):
+    def _load_corpuses(self):
         _corpus._load_episodes()
         return "not implemented"
 
-    def list_of_episodes(self):
+    def _list_of_episodes(self):
         return "not implemented"
 
-    def transcript_of_episode(self, episode_id):
+    def _transcript_of_episode(self, statement):
         return "not implemented"
 
 
@@ -266,9 +266,14 @@ class Eliza:
     def analyze(self, statement):
         print("analyze")
         print("statement", statement)
-        "hard coded commands"
-        if (statement == "episodes"):
-            return self.listOfEpisodes()
+
+        # hard coded commands
+        if statement == "episodes":
+            return self._list_of_episodes()
+        if statement.startswith("transcript of"):
+            return self._transcript_of_episode(statement)
+
+
 
 
         "Match user's input to responses in psychobabble. Then reflect candidate response."

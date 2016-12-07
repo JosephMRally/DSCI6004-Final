@@ -5,5 +5,5 @@ complete. deployable to heroku
 complete. elize base
 inprogress. add 'hard' command of show episodes
 inprogress. add 'hard' command of show transcripts for episode
-
+inprogress. unit test for srt_parser
 

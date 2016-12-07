@@ -6,14 +6,19 @@ import srt_parser
 
 
 class test__srt_parser(object):
+    parser = None
 
     def setup(self):
         print("setup")
-        parser = srt_parser.Srt_Parser(di_path='/Users/Mac/GitHub/DSCI6004-Final')
+        self.parser = srt_parser.Srt_Parser(di_path='/Users/Mac/GitHub/DSCI6004-Final')
 
-    def test_classfreq(self):
+    def test_parser(self):
         print("test_class_freq")
-        assert len(parser.episodes)==2
-        assert_equal(1, 2)
+        assert len(self.parser.episodes)==2
+        assert len(self.parser.episodes[0].words_unaltered)>1000
+        assert self.parser.episodes[0].words_unaltered.startswith("Oh Oh it's a beautiful day in the neighborhood")
+        assert self.parser.episodes[0].words[0:5] == ['Oh', 'Oh', 'it', "'s",'a']
+        assert self.parser.episodes[0].line_number[0:5] == [1,2,3,4,5]
+        assert self.parser.episodes[0].line_number[0:5] == [1, 2, 3, 4, 5]
 
-test__srt_parser()
+#test__srt_parser()

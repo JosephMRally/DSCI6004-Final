@@ -36,6 +36,7 @@ def handle_messages():
     except Exception as err:
         print('Exception!')
         print(str(err))
+        # dont ever throw errors up the stack from hereon, don't crash the app domain
     finally:
         print('Completed')
         sys.stdout.flush()
@@ -63,7 +64,7 @@ def messaging_events(payload):
     except Exception as err:
         print("Exception!")
         print(str(err))
-        raise err
+        #raise err  # dont ever throw errors up the stack from hereon, don't crash the app domain
     finally:
         print('messaging_events completed')
         sys.stdout.flush()
@@ -90,7 +91,7 @@ def send_message(token, recipient, text):
     except Exception as err:
         print("Exception!")
         print(str(err))
-        raise err
+        #raise err # dont ever throw errors up the stack from hereon, don't crash the app domain
     finally:
         print('send_message Completed')
         sys.stdout.flush()

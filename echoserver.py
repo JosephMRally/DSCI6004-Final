@@ -25,7 +25,7 @@ def handle_verification():
 @app.route('/', methods=['POST'])
 def handle_messages():
     try:
-        print("handle_messages")
+        print("METHOD: handle_messages")
         payload = request.get_data()
         payload = payload.decode("utf-8")
         for sender, message in messaging_events(str(payload)):
@@ -82,11 +82,12 @@ def send_message(token, recipient, text):
         data = None
         if text.startswith("http"):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
+            url = urllib2.unquote(urllib2.quote(text.encode("utf8")))
             data = json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"attachment": {
                                     "type": "video",
-                                    "payload": {"url": text}
+                                    "payload": {"url": url}
                                 }
                             }
             })

@@ -242,7 +242,7 @@ class Eliza:
 
     # main routine to process requests
     def analyze(self, statement):
-        print("analyze")
+        print("METHOD: Analyze")
         print("statement", statement)
         statement = statement.lower()
 

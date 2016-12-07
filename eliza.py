@@ -281,7 +281,8 @@ class Eliza:
         response = None
         try:
             print(statement)
-            match_group = re.match("([0-9]+)", statement, re.IGNORECASE)
+            match_group = re.search(r"(\d+)", statement, re.IGNORECASE)
+            print(match_group)
             capture_group = match_group.groups(0)[0] if len(match_group.groups()) > 0 else ""
             episode_id = int(capture_group)
             episode = self._corpus.episodes[episode_id]

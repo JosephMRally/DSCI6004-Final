@@ -25,5 +25,4 @@ class test__eliza(object):
         response = self.obj._command_transcript_of_episode("transcript of episode 0")
         print(response)
         assert response is not None
-        assert "0 : Mister" in response
-        assert "1 : Mister" in response
+        assert "Mister Rogers' Neighborhood Be Yourself" in response

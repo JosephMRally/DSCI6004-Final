@@ -1,7 +1,7 @@
 import re
 import random
 
-import svt_corpus
+import srt_parser
 
 
 class Eliza:
@@ -240,12 +240,13 @@ class Eliza:
     psychobabble.insert(0,you_are)
 
     _corpus = None
+
     def __init__(self):
-        self._corpus = svt_corpus.Corpus()
-        self._corpus.load_episodes()
+        self._corpus = srt_parser.Corpus()
+        self._corpus._load_episodes()
 
     def load_corpuses(self):
-        _corpus.load_episodes()
+        _corpus._load_episodes()
         return "not implemented"
 
     def list_of_episodes(self):

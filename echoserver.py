@@ -40,7 +40,7 @@ def handle_messages():
         print('Completed')
         sys.stdout.flush()
 
-_elize = Eliza()
+_elize = eliza.Eliza()
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.

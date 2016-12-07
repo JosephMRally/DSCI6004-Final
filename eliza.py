@@ -242,7 +242,7 @@ class Eliza:
     _corpus = None
 
     def __init__(self):
-        self._corpus = srt_parser.Corpus()
+        self._corpus = srt_parser.Srt_Parser()
         self._corpus._load_episodes()
 
     def load_corpuses(self):

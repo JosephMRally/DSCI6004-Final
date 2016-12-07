@@ -16,5 +16,4 @@ class test__srt_parser(object):
         assert len(parser.episodes)==2
         assert_equal(1, 2)
 
-def test():
-    assert False
+test__srt_parser()

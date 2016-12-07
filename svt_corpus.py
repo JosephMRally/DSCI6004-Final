@@ -69,4 +69,3 @@ class Corpus: #TODO: rename to srt_parser
 
 class Expando(object):
     pass
-

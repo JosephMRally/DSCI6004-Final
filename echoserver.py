@@ -24,7 +24,7 @@ def handle_verification():
 @app.route('/', methods=['POST'])
 def handle_messages():
     try:
-        print("Handling Messages")
+        print("handle_messages")
         payload = request.get_data()
         payload = payload.decode("utf-8")
         for sender, message in messaging_events(str(payload)):
@@ -39,17 +39,20 @@ def handle_messages():
         print('Completed')
         sys.stdout.flush()
 
-
+_elize = Eliza()
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
     try:
+        print("messaging_events")
         data = json.loads(payload)
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
-                yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+                #yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+                s = event["message"]["text"].encode('unicode_escape')
+                yield event["sender"]["id"], _elize.analyze(s)
             else:
                 yield event["sender"]["id"], "I can't echo this"
     except Exception as err:
@@ -64,6 +67,7 @@ def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
     """
     try:
+        print("send_message")
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
         params={"access_token": token},
         data=json.dumps({

@@ -80,7 +80,7 @@ def send_message(token, recipient, text):
 
         #data
         data = None
-        if text.startswith("http:"):
+        if text.startswith("http"):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
             data = json.dumps({
                 "recipient": {"id": recipient},
@@ -97,6 +97,7 @@ def send_message(token, recipient, text):
             })
 
         #make the request to facebook
+        print("response data packet: ", data)
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,

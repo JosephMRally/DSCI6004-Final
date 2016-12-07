@@ -3,6 +3,7 @@ import json
 import requests
 import sys
 
+import eliza
 
 app = Flask(__name__)
 

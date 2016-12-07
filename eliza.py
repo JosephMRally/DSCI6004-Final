@@ -263,6 +263,8 @@ class Eliza:
 
 
     def analyze(self, statement):
+        print("analyze")
+        print("statement", statement)
         "hard coded commands"
         if (statement == "episodes"):
             return self.listOfEpisodes()
@@ -278,6 +280,7 @@ class Eliza:
 
         response = random.choice(response_message)
         response = response.format(self.reflect(capture_group))
+        print("analyze complete")
         return response
 
 

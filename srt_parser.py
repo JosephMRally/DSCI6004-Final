@@ -8,6 +8,13 @@ from textblob import TextBlob
 
 class Srt_Parser:
     # instance variables
+    """
+    episodes.name
+    episodes.words_unaltered
+    episodes.words
+    episodes.line_number
+    episodes.timing
+    """
     episodes = None
     _path = os.getcwd()
 

@@ -18,7 +18,4 @@ class test__srt_parser(object):
         assert len(self.parser.episodes[0].words_unaltered)>1000
         assert self.parser.episodes[0].words_unaltered.startswith("Oh Oh it's a beautiful day in the neighborhood")
         assert self.parser.episodes[0].words[0:5] == ['Oh', 'Oh', 'it', "'s",'a']
-        assert self.parser.episodes[0].line_number[0:5] == [1,2,3,4,5]
         assert self.parser.episodes[0].line_number[0:5] == [1, 2, 3, 4, 5]
-
-#test__srt_parser()

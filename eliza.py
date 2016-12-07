@@ -234,20 +234,23 @@ class Eliza:
     psychobabble.insert(0,you_are)
     _corpus = None
 
-    def __init__(self):
-        self._corpus = srt_parser.Srt_Parser()
-        #self._corpus._load_episodes()
+    def __init__(self, di_corpus=None):
+        if di_corpus is None:
+            self._corpus = srt_parser.Srt_Parser()
+        else:
+            self._corpus = di_corpus
 
     # main routine to process requests
     def analyze(self, statement):
         print("analyze")
         print("statement", statement)
+        statement = statement.lower()
 
         # hard coded commands
-        if statement == "episodes":
-            return self._list_of_episodes()
+        if "episodes" in statement:
+            return self._command_episode()
         if statement.startswith("transcript of"):
-            return self._transcript_of_episode(statement)
+            return self._command_transcript_of_episode(statement)
         if "help" in statement:
             return self._help()
 
@@ -266,22 +269,29 @@ class Eliza:
         return response
 
     # helper method
-    # TODO: use factory design pattern if there are other formats we can use
-    def _load_corpuses(self):
-        #_corpus._load_episodes()
-        return "not implemented"
-
-    # helper method
-    def _list_of_episodes(self):
+    def _command_episode(self):
         response = "episode id : episode name\n"
-        for n, episode in enumerate(_corpus.episodes):
+        for n, episode in enumerate(self._corpus.episodes):
             response += "{0} : {1}\n".format(n, episode.name)
         response += "Hint: 'transcript of episode (XX)'."
         return response
 
     # helper method
-    def _transcript_of_episode(self, statement):
-        return "not implemented"
+    def _command_transcript_of_episode(self, statement):
+        response = None
+        try:
+            print(statement)
+            match_group = re.match("([0-9]+)", statement, re.IGNORECASE)
+            capture_group = match_group.groups(0)[0] if len(match_group.groups()) > 0 else ""
+            episode_id = int(capture_group)
+            episode = self._corpus.episodes[episode_id]
+            response = "{0}\n{1}".format(episode.name, episode.words_unaltered)
+        except Exception as err:
+            print(err)
+            response = "I am sorry neighbor, I didn't understand which episode id you wanted"
+        finally:
+            pass
+        return response
 
     # helper method
     def _reflect(self, fragment):

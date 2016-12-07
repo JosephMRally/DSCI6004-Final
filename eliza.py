@@ -242,7 +242,7 @@ class Eliza:
     _corpus = None
     def __init__(self):
         self._corpus = svt_corpus.Corpus()
-        self._corpus.load_corpuses()
+        self._corpus.load_episodes()
 
     def load_corpuses():
         _corpus.load_episodes()

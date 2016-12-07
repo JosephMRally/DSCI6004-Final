@@ -55,6 +55,8 @@ def messaging_events(payload):
                 s = event["message"]["text"].encode('unicode_escape')
                 print("received: ", s)
                 print(type(s))
+                s = str(s.decode("utf-8"))
+                print(type(s))
                 #s = s.decode('utf-8')
                 response = _elize.analyze(s)
                 yield event["sender"]["id"], response

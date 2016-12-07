@@ -244,25 +244,25 @@ class Eliza:
         self._corpus = svt_corpus.Corpus()
         self._corpus.load_episodes()
 
-    def load_corpuses():
+    def load_corpuses(self):
         _corpus.load_episodes()
         return "not implemented"
 
-    def list_of_episodes():
+    def list_of_episodes(self):
         return "not implemented"
 
-    def transcript_of_episode(episode_id):
+    def transcript_of_episode(self, episode_id):
         return "not implemented"
 
 
-    def reflect(fragment):
+    def reflect(self, fragment):
         fragment = fragment.lower()
         tokens = fragment.split(" ")
         tokens = list(map(lambda x: reflections[x] if x in reflections else x, tokens))
         return ' '.join(tokens)
 
 
-    def analyze(statement):
+    def analyze(self, statement):
         "hard coded commands"
         if (statement == "episodes"):
             return listOfEpisodes()

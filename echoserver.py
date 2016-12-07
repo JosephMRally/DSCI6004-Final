@@ -29,6 +29,7 @@ def handle_messages():
         print("METHOD: handle_messages")
         payload = request.get_data()
         payload = payload.decode("utf-8")
+        print("Payload: ", payload)
         for sender, message in messaging_events(str(payload)):
             print("Incoming from %s: %s" % (sender, message))
             send_message(PAT, sender, message)

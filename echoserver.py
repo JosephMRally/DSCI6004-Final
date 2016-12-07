@@ -84,7 +84,7 @@ def send_message(token, recipient, text):
         data = None
         if text.startswith("http"):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
-            url = r"https:\/\/youtu.be\/fWNaR-rxAic"
+            url = r"https://youtu.be/fWNaR-rxAic"
             data = json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"attachment": {

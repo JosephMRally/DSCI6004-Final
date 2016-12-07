@@ -258,18 +258,18 @@ class Eliza:
     def reflect(self, fragment):
         fragment = fragment.lower()
         tokens = fragment.split(" ")
-        tokens = list(map(lambda x: reflections[x] if x in reflections else x, tokens))
+        tokens = list(map(lambda x: self.reflections[x] if x in self.reflections else x, tokens))
         return ' '.join(tokens)
 
 
     def analyze(self, statement):
         "hard coded commands"
         if (statement == "episodes"):
-            return listOfEpisodes()
+            return self.listOfEpisodes()
 
 
         "Match user's input to responses in psychobabble. Then reflect candidate response."
-        for response_pattern, response_message in psychobabble:
+        for response_pattern, response_message in self.psychobabble:
             match_group = re.match(response_pattern, statement, re.IGNORECASE)
             if (match_group):
                 # print("X", response_pattern)
@@ -277,7 +277,7 @@ class Eliza:
                 break
 
         response = random.choice(response_message)
-        response = response.format(reflect(capture_group))
+        response = response.format(self.reflect(capture_group))
         return response
 
 

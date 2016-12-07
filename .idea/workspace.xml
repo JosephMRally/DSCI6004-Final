@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="tests" name="Unit Tests" />
+      <run-configuration type="tests" name="Unittests in test_srt_parser" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b6f7cec-6723-4aaa-a60a-8328058005c8" name="Default" comment="" />
+    <list default="true" id="3b6f7cec-6723-4aaa-a60a-8328058005c8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Final.iml" afterPath="$PROJECT_DIR$/.idea/Final.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Final.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,56 +30,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="echoserver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/echoserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-                <element signature="e#479#788#0" expanded="false" />
-                <element signature="e#852#1335#0" expanded="false" />
-                <element signature="e#1389#1475#1" expanded="false" />
-                <element signature="e#2241#2895#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svt_corpus.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/svt_corpus.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#178#196#0" expanded="false" />
-                <element signature="e#235#628#0" expanded="false" />
-                <element signature="e#701#2559#0" expanded="false" />
-                <element signature="e#1264#2490#0" expanded="false" />
-                <element signature="e#2588#2592#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="eliza.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eliza.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="343">
+              <caret line="306" column="42" selection-start-line="306" selection-start-column="42" selection-end-line="306" selection-end-column="42" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <element signature="e#76#418#0" expanded="false" />
-                <element signature="e#439#7215#0" expanded="false" />
-                <element signature="e#7231#7516#0" expanded="false" />
-                <element signature="e#7567#7789#0" expanded="false" />
-                <element signature="e#7984#8040#0" expanded="false" />
-                <element signature="e#8078#8102#0" expanded="false" />
-                <element signature="e#8155#8179#0" expanded="false" />
-                <element signature="e#8217#8401#0" expanded="false" />
-                <element signature="e#8440#9310#0" expanded="false" />
+                <element signature="e#438#7214#0" expanded="false" />
+                <element signature="e#7228#7513#0" expanded="false" />
+                <element signature="e#7562#7784#0" expanded="false" />
+                <element signature="e#7888#8017#0" expanded="false" />
+                <element signature="e#9190#9434#0" expanded="false" />
+                <element signature="e#9521#10163#0" expanded="false" />
+                <element signature="e#10227#10421#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="echoserver.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/echoserver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding>
+                <element signature="e#852#1421#0" expanded="false" />
+                <element signature="e#1482#2501#0" expanded="false" />
+                <element signature="e#1482#1568#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_eliza.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/test_eliza.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +107,6 @@
         <option value="$PROJECT_DIR$/../DSCI6004-student/Final/svt_corpus.py" />
         <option value="$PROJECT_DIR$/facebook.py" />
         <option value="$PROJECT_DIR$/python-getting-started/echobot.py" />
-        <option value="$PROJECT_DIR$/log" />
         <option value="$PROJECT_DIR$/python-getting-started/runtime.txt" />
         <option value="$PROJECT_DIR$/python-getting-started/Procfile" />
         <option value="$PROJECT_DIR$/env_heroku/runtime.txt" />
@@ -103,17 +114,26 @@
         <option value="$PROJECT_DIR$/env_heroku/Procfile.windows" />
         <option value="$PROJECT_DIR$/env_heroku/Procfile" />
         <option value="$PROJECT_DIR$/env_heroku/echoserver.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/tests/corpus.py" />
         <option value="$PROJECT_DIR$/svt_corpus.py" />
+        <option value="$PROJECT_DIR$/tests/srt_parser.py" />
+        <option value="$PROJECT_DIR$/../DSCI6003-student/week4/4.2/NaiveBayes_Practicum/tests/test_nb.py" />
+        <option value="$PROJECT_DIR$/tests/eliza.py" />
+        <option value="$PROJECT_DIR$/tests/test_srt_parser.py" />
+        <option value="$PROJECT_DIR$/srt_parser.py" />
+        <option value="$PROJECT_DIR$/tests/test_eliza.py" />
+        <option value="$PROJECT_DIR$/log" />
         <option value="$PROJECT_DIR$/eliza.py" />
         <option value="$PROJECT_DIR$/echoserver.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1170" />
-    <option name="height" value="721" />
+    <option name="width" value="1050" />
+    <option name="height" value="782" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -179,20 +199,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DSCI6004-Final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DSCI6004-Final" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings interpreter-options="-i" module-name="Final" is-module-sdk="true">
+      <console-settings interpreter-options="-i" module-name="Final" sdk-home="$USER_HOME$/anaconda/bin/python">
+        <option name="mySdkHome" value="$USER_HOME$/anaconda/bin/python" />
         <option name="myInterpreterOptions" value="-i" />
-        <option name="myUseModuleSdk" value="true" />
         <option name="myModuleName" value="Final" />
       </console-settings>
     </option>
@@ -202,7 +236,7 @@
       <recent name="$PROJECT_DIR$/env_heroku" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.echoserver (1)">
+  <component name="RunManager" selected="Python tests.Unit Tests">
     <configuration default="false" name="eliza" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="-i" />
       <option name="PARENT_ENVS" value="true" />
@@ -252,6 +286,26 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/echoserver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="srt_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Final" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_srt_parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -325,7 +379,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -334,8 +388,8 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PARAMS" value="" />
@@ -388,16 +442,40 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.eliza" />
-      <item index="1" class="java.lang.String" itemvalue="Python.echoserver" />
-      <item index="2" class="java.lang.String" itemvalue="Python.echoserver (1)" />
+    <configuration default="false" name="Unit Tests" type="tests" factoryName="Nosetests" show_console_on_std_out="true" show_console_on_std_err="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Final" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="-s" />
+      <option name="USE_PARAM" value="true" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unit Tests" />
+      <item index="1" class="java.lang.String" itemvalue="Python.eliza" />
+      <item index="2" class="java.lang.String" itemvalue="Python.echoserver" />
+      <item index="3" class="java.lang.String" itemvalue="Python.echoserver (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.srt_parser" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.echoserver (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.echoserver" />
-        <item index="2" class="java.lang.String" itemvalue="Python.eliza" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.srt_parser" />
+        <item index="1" class="java.lang.String" itemvalue="Python.echoserver (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.echoserver" />
+        <item index="3" class="java.lang.String" itemvalue="Python.eliza" />
       </list>
     </recent_temporary>
   </component>
@@ -414,26 +492,58 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 02m 22s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 06m 43s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 06m 48s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 07m 50s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 08m 26s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 14m 46s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 15m 02s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 17m 21s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 24m 07s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unit_Tests - 2016.12.07 at 13h 24m 10s.xml">
+      <configuration name="Unit Tests" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1170" height="721" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1050" height="782" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19060053" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33819243" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40699524" sideWeight="0.49173194" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40699524" sideWeight="0.49173194" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289855" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.49574468" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40699524" sideWeight="0.50826806" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270525" sideWeight="0.49574468" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29275364" sideWeight="0.50826806" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270525" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39871794" sideWeight="0.54574466" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39710146" sideWeight="0.54574466" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -471,14 +581,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/eliza.py</url>
-          <line>290</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/../DSCI6004-student/Final/svt_corpus.py</url>
           <line>54</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../DSCI6003-student/week4/4.2/NaiveBayes_Practicum/tests/test_nb.py</url>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/Dropbox/DSCI6003Oct2016/week4/Daniel Gorham/test_decision_tree.py</url>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/anaconda/pkgs/scikit-learn-0.18-np111py35_blas_openblas_202/lib/python3.5/site-packages/sklearn/gaussian_process/tests/test_kernels.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/eliza.py</url>
+          <line>284</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -488,60 +611,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eliza.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#76#418#0" expanded="false" />
-            <element signature="e#439#7215#0" expanded="false" />
-            <element signature="e#7231#7516#0" expanded="false" />
-            <element signature="e#7567#7789#0" expanded="false" />
-            <element signature="e#7984#8040#0" expanded="false" />
-            <element signature="e#8078#8102#0" expanded="false" />
-            <element signature="e#8155#8179#0" expanded="false" />
-            <element signature="e#8217#8401#0" expanded="false" />
-            <element signature="e#8440#9310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svt_corpus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#178#196#0" expanded="false" />
-            <element signature="e#235#628#0" expanded="false" />
-            <element signature="e#701#2559#0" expanded="false" />
-            <element signature="e#1264#2490#0" expanded="false" />
-            <element signature="e#2588#2592#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../DSCI6004-student/Final/svt_corpus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="39" column="71" selection-start-line="39" selection-start-column="71" selection-end-line="39" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chatbot.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -568,13 +642,6 @@
     <entry file="file://$PROJECT_DIR$/facebook.py" />
     <entry file="file://$PROJECT_DIR$/python-getting-started/echobot.py" />
     <entry file="file://$PROJECT_DIR$/python-getting-started/gettingstarted/settings.py" />
-    <entry file="file://$PROJECT_DIR$/log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python-getting-started/Procfile.windows" />
     <entry file="file://$PROJECT_DIR$/python-getting-started/README.md" />
     <entry file="file://$PROJECT_DIR$/python-getting-started/app.json" />
@@ -610,14 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -634,20 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/echoserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <element signature="e#479#788#0" expanded="false" />
-            <element signature="e#852#1335#0" expanded="false" />
-            <element signature="e#1389#1475#1" expanded="false" />
-            <element signature="e#2241#2895#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/runtime.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -656,44 +701,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="169">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/srt_parser">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dropbox/DSCI6003Oct2016/week4/Daniel Gorham/test_decision_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/pkgs/scikit-learn-0.18-np111py35_blas_openblas_202/lib/python3.5/site-packages/sklearn/gaussian_process/tests/test_kernels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4078">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DSCI6003-student/week4/4.2/NaiveBayes_Practicum/tests/test_nb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python3.5/site-packages/statsmodels/imputation/tests/test_ros.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-55">
+          <caret line="178" column="20" selection-start-line="178" selection-start-column="20" selection-end-line="178" selection-end-column="20" />
+          <folding>
+            <element signature="e#393#913#0" expanded="false" />
+            <element signature="e#966#3667#0" expanded="false" />
+            <element signature="e#3716#8941#0" expanded="false" />
+            <element signature="e#8987#10109#0" expanded="false" />
+            <element signature="e#10171#11816#0" expanded="false" />
+            <element signature="e#11855#11972#0" expanded="false" />
+            <element signature="e#12028#12253#0" expanded="false" />
+            <element signature="e#12293#14101#0" expanded="false" />
+            <element signature="e#14151#14753#0" expanded="false" />
+            <element signature="e#14788#15142#0" expanded="false" />
+            <element signature="e#15183#16115#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_srt_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srt_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#383#591#0" expanded="false" />
+            <element signature="e#654#1155#0" expanded="false" />
+            <element signature="e#1229#3388#0" expanded="false" />
+            <element signature="e#3417#3421#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_eliza.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eliza.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="343">
+          <caret line="306" column="42" selection-start-line="306" selection-start-column="42" selection-end-line="306" selection-end-column="42" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <element signature="e#76#418#0" expanded="false" />
-            <element signature="e#439#7215#0" expanded="false" />
-            <element signature="e#7231#7516#0" expanded="false" />
-            <element signature="e#7567#7789#0" expanded="false" />
-            <element signature="e#7984#8040#0" expanded="false" />
-            <element signature="e#8078#8102#0" expanded="false" />
-            <element signature="e#8155#8179#0" expanded="false" />
-            <element signature="e#8217#8401#0" expanded="false" />
-            <element signature="e#8440#9310#0" expanded="false" />
+            <element signature="e#438#7214#0" expanded="false" />
+            <element signature="e#7228#7513#0" expanded="false" />
+            <element signature="e#7562#7784#0" expanded="false" />
+            <element signature="e#7888#8017#0" expanded="false" />
+            <element signature="e#9190#9434#0" expanded="false" />
+            <element signature="e#9521#10163#0" expanded="false" />
+            <element signature="e#10227#10421#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svt_corpus.py">
+    <entry file="file://$PROJECT_DIR$/echoserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#178#196#0" expanded="false" />
-            <element signature="e#235#628#0" expanded="false" />
-            <element signature="e#701#2559#0" expanded="false" />
-            <element signature="e#1264#2490#0" expanded="false" />
-            <element signature="e#2588#2592#0" expanded="false" />
+            <element signature="e#852#1421#0" expanded="false" />
+            <element signature="e#1482#2501#0" expanded="false" />
+            <element signature="e#1482#1568#1" expanded="false" />
           </folding>
         </state>
       </provider>

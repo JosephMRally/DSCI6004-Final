@@ -78,17 +78,29 @@ def send_message(token, recipient, text):
 
         text = text[:640]
 
+        #data
+        data = None
+        if text.startswith("http:"):
+            # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
+            data = json.dumps({
+                "recipient": {"id": recipient},
+                "message": {"attachment": {
+                                    "type": "video",
+                                    "payload": {"url": text}
+                                }
+                            }
+            })
+        else:
+            data = json.dumps({
+                "recipient": {"id": recipient},
+                "message": {"text": text}
+            })
+
+        #make the request to facebook
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
-        params={"access_token": token},
-        # data=json.dumps({
-        #     "recipient": {"id": recipient},
-        #     "message": {"text": text.decode('unicode_escape')}
-        # }),
-        data=json.dumps({
-            "recipient": {"id": recipient},
-            "message": {"text": text}
-        }),
-        headers={'Content-type': 'application/json'})
+            params={"access_token": token},
+            data=data,
+            headers={'Content-type': 'application/json'})
         if r.status_code != requests.codes.ok:
             print(r.text)
     except Exception as err:

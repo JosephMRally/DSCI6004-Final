@@ -32,9 +32,9 @@ def handle_messages():
             send_message(PAT, sender, message)
         sys.stdout.flush()
         return "ok"
-    except Error:
+    except Exception as err:
         print('Exception!')
-        print(str(Error))
+        print(str(err))
     finally:
         print('Completed')
         sys.stdout.flush()

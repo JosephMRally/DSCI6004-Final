@@ -26,11 +26,8 @@ def handle_messages():
     try:
         print("Handling Messages")
         payload = request.get_data()
-        print("1")
         payload = payload.decode("utf-8")
-        print("1.5")
         for sender, message in messaging_events(str(payload)):
-            print("2")
             print("Incoming from %s: %s" % (sender, message))
             send_message(PAT, sender, message)
         sys.stdout.flush()
@@ -47,28 +44,44 @@ def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
     """
-    data = json.loads(payload)
-    messaging_events = data["entry"][0]["messaging"]
-    for event in messaging_events:
-        if "message" in event and "text" in event["message"]:
-            yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
-        else:
-            yield event["sender"]["id"], "I can't echo this"
-
+    try:
+        data = json.loads(payload)
+        messaging_events = data["entry"][0]["messaging"]
+        for event in messaging_events:
+            if "message" in event and "text" in event["message"]:
+                yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+            else:
+                yield event["sender"]["id"], "I can't echo this"
+    except Exception as err:
+        print("Exception!")
+        print(str(err))
+        raise err
+    finally:
+        print('Completed')
+        sys.stdout.flush()
 
 def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
     """
+    try:
+        r = requests.post("https://graph.facebook.com/v2.6/me/messages",
+        params={"access_token": token},
+        data=json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text.decode('unicode_escape')}
+        }),
+        headers={'Content-type': 'application/json'})
+        if r.status_code != requests.codes.ok:
+            print(r.text)
+    except Exception as err:
+        print("Exception!")
+        print(str(err))
+        raise err
+    finally:
+        print('Completed')
+        sys.stdout.flush()
 
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages",
-    params={"access_token": token},
-    data=json.dumps({
-        "recipient": {"id": recipient},
-        "message": {"text": text.decode('unicode_escape')}
-    }),
-    headers={'Content-type': 'application/json'})
-    if r.status_code != requests.codes.ok:
-        print(r.text)
+
 
 if __name__ == '__main__':
     app.run()

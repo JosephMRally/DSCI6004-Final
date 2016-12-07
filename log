@@ -4,19 +4,20 @@ ITERATION 1
 complete. load up all stv as corpus
 complete. deployable to heroku
 complete. elize base
-inprogress. add 'hard' command of show episodes
-inprogress. add 'hard' command of show transcripts for episode
-inprogress. unit test for srt_parser
-limit messages to 640 characters
+conplete. add 'hard' command of show episodes
+complete. add 'hard' command of show transcripts for episode
+complete. unit test for srt_parser
+complete. limit messages to 640 characters
+complete. switch for video and text messages
 
 ITERATION 2
-video hyperlink to youtube with start and stop
+abilty for user to thumb up? use for voting??
+mongodb for results?
 pick up on username
 greet user with name and theme song
 multiple messages over 640 characters
 TF-IDF
 
 ITERATION 3
-embedded video from youtube
 keep track of users messages
 

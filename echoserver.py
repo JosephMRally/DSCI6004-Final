@@ -26,9 +26,9 @@ def handle_messages():
     try:
         print("Handling Messages")
         payload = request.get_data()
-        #print(payload)
+        print(type(payload))
         print("1")
-        for sender, message in messaging_events(payload):
+        for sender, message in messaging_events(str(payload)):
             print("2")
             print("Incoming from %s: %s" % (sender, message))
             send_message(PAT, sender, message)

@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 import requests
 import sys
-import urllib
+from urllib import parse
 
 import eliza
 
@@ -83,7 +83,7 @@ def send_message(token, recipient, text):
         data = None
         if text.startswith("http"):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
-            url = urllib.unquote(text).decode('utf8')
+            url = text
             data = json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"attachment": {

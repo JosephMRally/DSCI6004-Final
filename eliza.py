@@ -21,7 +21,6 @@ class Eliza:
         "you": "me",
         "me": "you"
     }
-
     psychobabble = [
         [r'I need (.*)',
          ["Why do you need {0}?",
@@ -220,49 +219,26 @@ class Eliza:
           "Good-bye.",
           "Thank you, that will be $150.  Have a good day!"]]
     ]
-
-
     father = [r'(.*) father(.*)',
          ["Tell me more about your father.",
           "What was your relationship with your father like?",
           "How do you feel about your father?",
           "How does this relate to your feelings today?",
           "Good family relations are important."]]
-
     psychobabble.insert(0,father)
-
     you_are = [r"You are (.*)",
          ["Why do you think I am {0}?",
           "Does it please you to think that I'm {0}?",
           "Perhaps you would like me to be {0}.",
           "Perhaps you're really talking about yourself?"]]
-
     psychobabble.insert(0,you_are)
-
     _corpus = None
 
     def __init__(self):
         self._corpus = srt_parser.Srt_Parser()
         #self._corpus._load_episodes()
 
-    def _load_corpuses(self):
-        _corpus._load_episodes()
-        return "not implemented"
-
-    def _list_of_episodes(self):
-        return "not implemented"
-
-    def _transcript_of_episode(self, statement):
-        return "not implemented"
-
-
-    def reflect(self, fragment):
-        fragment = fragment.lower()
-        tokens = fragment.split(" ")
-        tokens = list(map(lambda x: self.reflections[x] if x in self.reflections else x, tokens))
-        return ' '.join(tokens)
-
-
+    # main routine to process requests
     def analyze(self, statement):
         print("analyze")
         print("statement", statement)
@@ -272,11 +248,10 @@ class Eliza:
             return self._list_of_episodes()
         if statement.startswith("transcript of"):
             return self._transcript_of_episode(statement)
+        if "help" in statement:
+            return self._help()
 
-
-
-
-        "Match user's input to responses in psychobabble. Then reflect candidate response."
+        # Match user's input to responses in psychobabble. Then reflect candidate response."
         for response_pattern, response_message in self.psychobabble:
             match_group = re.match(response_pattern, statement, re.IGNORECASE)
             if (match_group):
@@ -284,21 +259,40 @@ class Eliza:
                 capture_group = match_group.groups(0)[0] if len(match_group.groups()) > 0 else ""
                 break
 
+        # return the response
         response = random.choice(response_message)
-        response = response.format(self.reflect(capture_group))
+        response = response.format(self._reflect(capture_group))
         print("analyze complete")
         return response
 
+    # helper method
+    # TODO: use factory design pattern if there are other formats we can use
+    def _load_corpuses(self):
+        #_corpus._load_episodes()
+        return "not implemented"
 
+    # helper method
+    def _list_of_episodes(self):
+        response = "episode id : episode name\n"
+        for n, episode in enumerate(_corpus.episodes):
+            response += "{0} : {1}\n".format(n, episode.name)
+        response += "Hint: 'transcript of episode (XX)'."
+        return response
 
-    # print("Hello. How are you feeling today?")
-    #
-    # while True:
-    #     statement = input("> ")
-    #     print(analyze(statement))
-    #
-    #     if statement == "quit":
-    #         break
+    # helper method
+    def _transcript_of_episode(self, statement):
+        return "not implemented"
 
+    # helper method
+    def _reflect(self, fragment):
+        fragment = fragment.lower()
+        tokens = fragment.split(" ")
+        tokens = list(map(lambda x: self.reflections[x] if x in self.reflections else x, tokens))
+        return ' '.join(tokens)
+
+    def _help(self):
+        s = "Try words 'episodes', 'transcript of episode (XX)'," \
+            "'puppet show', 'history', 'credits'. "
+        return s
 
 

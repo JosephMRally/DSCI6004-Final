@@ -28,7 +28,7 @@ class Srt_Parser:
             textfile = open(path_and_directory + "/" + filename, 'r')
             text = str(textfile.read())
             entry = Expando() # dynamic object - cuz i love prototype languages
-            entry.name = filename
+            entry.name = filename # TODO: strip of postfix
             self._transform_srt_to_tokens(entry, text)
             self.episodes.append(entry)
 

@@ -304,7 +304,7 @@ class Eliza:
     def _command_help(self):
         s = "Try words 'episodes', 'transcript of episode (XX)'," \
             "'puppet show', 'history', 'credits'. "
-        s += " https://youtu.be/fWNaR-rxAic "
+        s = "https://youtu.be/fWNaR-rxAic"
         return s
 
 

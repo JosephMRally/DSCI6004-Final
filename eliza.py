@@ -252,7 +252,7 @@ class Eliza:
         if statement.startswith("transcript of"):
             return self._command_transcript_of_episode(statement)
         if "help" in statement:
-            return self._help()
+            return self._command_help()
 
         # Match user's input to responses in psychobabble. Then reflect candidate response."
         for response_pattern, response_message in self.psychobabble:
@@ -301,9 +301,10 @@ class Eliza:
         tokens = list(map(lambda x: self.reflections[x] if x in self.reflections else x, tokens))
         return ' '.join(tokens)
 
-    def _help(self):
+    def _command_help(self):
         s = "Try words 'episodes', 'transcript of episode (XX)'," \
             "'puppet show', 'history', 'credits'. "
+        s += " https://youtu.be/fWNaR-rxAic "
         return s
 
 

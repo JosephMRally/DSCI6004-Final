@@ -1,0 +1,8 @@
+starting from eliza
+ITERATION 1
+1. add 'hard' command of show episodes
+2. add 'hard' command of show transcripts for episode
+3. load up all stv as corpus
+4. deploy to heroku
+
+

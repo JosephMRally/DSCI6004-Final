@@ -40,6 +40,7 @@ def handle_messages():
         print('Completed')
         sys.stdout.flush()
 
+
 _elize = eliza.Eliza()
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
@@ -54,10 +55,7 @@ def messaging_events(payload):
                 #yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
                 s = event["message"]["text"].encode('unicode_escape')
                 print("received: ", s)
-                print(type(s))
                 s = str(s.decode("utf-8"))
-                print(type(s))
-                #s = s.decode('utf-8')
                 response = _elize.analyze(s)
                 yield event["sender"]["id"], response
             else:
@@ -67,8 +65,9 @@ def messaging_events(payload):
         print(str(err))
         raise err
     finally:
-        print('Completed')
+        print('messaging_events completed')
         sys.stdout.flush()
+
 
 def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
@@ -77,9 +76,13 @@ def send_message(token, recipient, text):
         print("send_message")
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
         params={"access_token": token},
+        # data=json.dumps({
+        #     "recipient": {"id": recipient},
+        #     "message": {"text": text.decode('unicode_escape')}
+        # }),
         data=json.dumps({
             "recipient": {"id": recipient},
-            "message": {"text": text.decode('unicode_escape')}
+            "message": {"text": text}
         }),
         headers={'Content-type': 'application/json'})
         if r.status_code != requests.codes.ok:
@@ -89,7 +92,7 @@ def send_message(token, recipient, text):
         print(str(err))
         raise err
     finally:
-        print('Completed')
+        print('send_message Completed')
         sys.stdout.flush()
 
 

@@ -86,8 +86,7 @@ def send_message(token, recipient, text):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
             data = json.dumps({
                 "recipient": {"id": recipient},
-                "message":{"text":"test",
-                    "attachment": {
+                "message": {"attachment": {
                         "type": "video",
                         "payload": {
                             "url": "https://petersapparel.com/bin/clip.mp4"

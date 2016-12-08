@@ -84,23 +84,29 @@ def send_message(token, recipient, text):
 
         #data
         data = None
-        if text.startswith("http"):
-            # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
-            data = json.dumps({
-                "recipient": {"id": recipient},
-                "message": {"attachment": {
-                        "type": "video",
-                        "payload": {
-                            "url": "http://youtu.be/5VqhIzigk1s"
-                        }
-                    }
-                }
-            })
-        else:
-            data = json.dumps({
-                "recipient": {"id": recipient},
-                "message": {"text": text}
-            })
+        # if text.startswith("http"):
+        #     # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
+        #     data = json.dumps({
+        #         "recipient": {"id": recipient},
+        #         "message": {"attachment": {
+        #                 "type": "video",
+        #                 "payload": {
+        #                     "url": "http://youtu.be/5VqhIzigk1s"
+        #                 },
+        #                 "buttons": [
+        #                     {
+        #                         "type": "postback",
+        #                         "title": "Bookmark Item",
+        #                         "payload": "DEVELOPER_DEFINED_PAYLOAD"
+        #                     }]
+        #             }
+        #         }
+        #     })
+        # else:
+        data = json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text}
+        })
 
         #make the request to facebook
         print("response data packet: ", data)

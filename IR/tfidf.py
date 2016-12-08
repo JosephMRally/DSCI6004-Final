@@ -9,7 +9,7 @@ from nltk.stem.porter import PorterStemmer
 
 class TfIdf():
     _token_dict = {}
-    _stemmer = PorterStemmer()
+    _p = PorterStemmer()
     _tfs = None
 
     def stem_tokens(self, tokens, stemmer):

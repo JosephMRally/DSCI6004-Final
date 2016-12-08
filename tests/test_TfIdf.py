@@ -4,7 +4,7 @@ from nose.tools import assert_equal, assert_not_equal
 
 import IR.tfidf
 
-class test__eliza(object):
+class test__tfidf(object):
     obj = None # object to test
 
     def setup(self):

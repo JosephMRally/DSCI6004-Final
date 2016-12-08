@@ -89,7 +89,7 @@ def send_message(token, recipient, text):
                 "message": {"attachment": {
                         "type": "video",
                         "payload": {
-                            "url": "https//youtu.be/5VqhIzigk1s"
+                            "url": "http://youtu.be/5VqhIzigk1s"
                         }
                     }
                 }

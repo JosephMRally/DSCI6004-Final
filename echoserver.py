@@ -57,7 +57,9 @@ def messaging_events(payload):
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
-                yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+                s = event["message"]["text"].encode('unicode_escape')
+                s = str(s.decode("utf-8"))
+                yield event["sender"]["id"], s
                 # s = event["message"]["text"].encode('unicode_escape')
                 # print("received: ", s)
                 # s = str(s.decode("utf-8"))

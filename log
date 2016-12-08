@@ -10,14 +10,13 @@ complete. unit test for srt_parser
 complete. limit messages to 640 characters
 complete. switch for video and text messages
 
-
 ITERATION 2
 abilty for user to thumb up? use for voting??
 mongodb for results?
 pick up on username
 greet user with name and theme song
 multiple messages over 640 characters
-TF-IDF
+IR. TF-IDF & jaccard similarity
 
 ITERATION 3
 keep track of users messages

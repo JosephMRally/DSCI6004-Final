@@ -110,6 +110,7 @@ def send_message(token, recipient, text):
 
         #make the request to facebook
         print("response data packet: ", data)
+        print(type(data))
         _db.record_outgoing_message(data) # record message to the database
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},

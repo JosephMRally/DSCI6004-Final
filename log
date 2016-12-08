@@ -10,13 +10,14 @@ complete. unit test for srt_parser
 complete. limit messages to 640 characters
 
 ITERATION 2
+MongoDB
 complete. switch for video and text messages
 inprogress. abilty for user to thumb up? use for voting??
 mongodb for results?
 pick up on username
-greet user with name and theme song
+greet user with name and theme song. (no userid in mongodb)
 multiple messages over 640 characters
-inprogress. IR. TF-IDF & jaccard similarity
+inprogress. IR. TF-IDF & jaccard similarity & stemming
 
 ITERATION 3
 keep track of users messages

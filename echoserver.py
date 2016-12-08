@@ -58,7 +58,7 @@ def messaging_events(payload):
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
                 s = event["message"]["text"].encode('unicode_escape')
-                s = str(s.decode("utf-8"))
+                #s = str(s.decode("utf-8"))
                 yield event["sender"]["id"], s
                 # s = event["message"]["text"].encode('unicode_escape')
                 # print("received: ", s)
@@ -83,7 +83,6 @@ def send_message(token, recipient, text):
         print("send_message")
 
         text = text[:640] # TODO: wrong place for this
-
         #data
         data = None
         # if text.startswith("http"):

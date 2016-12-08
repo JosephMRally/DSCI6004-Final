@@ -58,9 +58,10 @@ def messaging_events(payload):
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
+                print(type(event["message"]["text"]))
                 s = event["message"]["text"].encode('unicode_escape')
-                print("received: ", s)
                 s = str(s.decode("utf-8"))
+                print("received: ", s)
                 response = _elize.analyze(s)
                 yield event["sender"]["id"], response
             else:
@@ -82,23 +83,23 @@ def send_message(token, recipient, text):
 
         text = text[:640] # TODO: wrong place for this
         #data
-        data = None
+        #data = None
         # if text.startswith("http"):
         #     # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
-        data = json.dumps({
-            "recipient": {"id": recipient},
-            "message": {"attachment": {
-                    "type": "video",
-                    "payload": {
-                        "url": r"http:/\/\youtu.be/\5VqhIzigk1s"
-                    }
-                }
-            })
-        # else:
         # data = json.dumps({
         #     "recipient": {"id": recipient},
-        #     "message": {"text": text}
-        # })
+        #     "message": {"attachment": {
+        #             "type": "video",
+        #             "payload": {
+        #                 "url": r"http:/\/\youtu.be/\5VqhIzigk1s"
+        #             }
+        #         }
+        #     })
+        # else:
+        data = json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text}
+        })
 
         #make the request to facebook
         print("response data packet: ", data)

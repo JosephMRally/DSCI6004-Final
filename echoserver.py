@@ -58,8 +58,9 @@ def messaging_events(payload):
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
-                print(type(event["message"]["text"]))
+                print(type(event["message"]["text"])) #str
                 s = event["message"]["text"].encode('unicode_escape')
+                print(type(s)) #byte?
                 s = str(s.decode("utf-8"))
                 print("received: ", s)
                 response = _elize.analyze(s)

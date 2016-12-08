@@ -86,31 +86,11 @@ def send_message(token, recipient, text):
             # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
             data = json.dumps({
                 "recipient": {"id": recipient},
-                "message": {
+                "message":{"text":"test",
                     "attachment": {
-                        "type": "template",
+                        "type": "video",
                         "payload": {
-                            "template_type": "generic",
-                            "elements": [
-                                {
-                                    "title": "Welcome to Peter\'s Hats",
-                                    "item_url": "https://petersfancybrownhats.com",
-                                    "image_url": "https://petersfancybrownhats.com/company_image.png",
-                                    "subtitle": "We\'ve got the right hat for everyone.",
-                                    "buttons": [
-                                        {
-                                            "type": "web_url",
-                                            "url": "https://petersfancybrownhats.com",
-                                            "title": "View Website"
-                                        },
-                                        {
-                                            "type": "postback",
-                                            "title": "Start Chatting",
-                                            "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "url": "https://petersapparel.com/bin/clip.mp4"
                         }
                     }
                 }

@@ -11,7 +11,8 @@ class test__eliza(object):
         pass
 
     def test_command_episode(self):
-        document = [ ['a','b','c'], ['d','e','f','a'] ]
+        document = [ 'a b c d a', 'a b c' ]
         tf = IR.tfidf.TfIdf()
-        tf.calculate(document)
+        tf.index(document)
+        x = tf.query('a')
 

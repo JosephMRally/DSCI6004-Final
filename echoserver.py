@@ -89,8 +89,8 @@ def send_message(token, recipient, text):
                 "message": {"attachment": {
                         "type": "link",
                         "payload": {
-                            "url": "https://youtu.be/5VqhIzigk1s"
-                        }
+                            "permalink_url": "https://youtu.be/5VqhIzigk1s"
+                        },
                         "quick_replies": [
                             {
                                 "content_type": "text",

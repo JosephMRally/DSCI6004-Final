@@ -8,15 +8,15 @@ conplete. add 'hard' command of show episodes
 complete. add 'hard' command of show transcripts for episode
 complete. unit test for srt_parser
 complete. limit messages to 640 characters
-complete. switch for video and text messages
 
 ITERATION 2
-abilty for user to thumb up? use for voting??
+complete. switch for video and text messages
+inprogress. abilty for user to thumb up? use for voting??
 mongodb for results?
 pick up on username
 greet user with name and theme song
 multiple messages over 640 characters
-IR. TF-IDF & jaccard similarity
+inprogress. IR. TF-IDF & jaccard similarity
 
 ITERATION 3
 keep track of users messages

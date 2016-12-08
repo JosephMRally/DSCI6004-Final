@@ -62,7 +62,7 @@ def messaging_events(payload):
                 # print("received: ", s)
                 # s = str(s.decode("utf-8"))
                 # response = _elize.analyze(s)
-                yield event["sender"]["id"], response
+                #yield event["sender"]["id"], response
             else:
                 yield event["sender"]["id"], "I can't echo this"
     except Exception as err:

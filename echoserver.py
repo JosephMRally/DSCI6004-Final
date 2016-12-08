@@ -99,10 +99,14 @@ def send_message(token, recipient, text):
         #         }
         #     })
         # else:
-        data = json.dumps({
+        # data = json.dumps({
+        #     "recipient": {"id": recipient},
+        #     "message": {"text": text}
+        # })
+        data = {
             "recipient": {"id": recipient},
             "message": {"text": text}
-        })
+        }
 
         #make the request to facebook
         print("response data packet: ", data)

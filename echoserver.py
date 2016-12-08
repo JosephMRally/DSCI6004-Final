@@ -14,6 +14,7 @@ PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1
 
 @app.route('/', methods=['GET'])
 def handle_verification():
+    # http://localhost:5000?hub.verify_token=my_voice_is_my_password_verify_me&
     print("Handling Verification.")
     if request.args.get('hub.verify_token', '') == 'my_voice_is_my_password_verify_me':
         print("Verification successful!")
@@ -58,7 +59,8 @@ def messaging_events(payload):
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
                 s = event["message"]["text"].encode('unicode_escape')
-                #s = str(s.decode("utf-8"))
+                s = str(s.decode("utf-8"))
+                s = parse.urlencode(s)
                 yield event["sender"]["id"], s
                 # s = event["message"]["text"].encode('unicode_escape')
                 # print("received: ", s)

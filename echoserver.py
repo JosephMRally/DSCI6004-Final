@@ -5,12 +5,16 @@ import sys
 from urllib import parse
 
 import eliza
+import Mongo
 
 app = Flask(__name__)
+_elize = eliza.Eliza()
+_db = Mongo.DB()
 
 # This needs to be filled with the Page Access Token that will be provided
 # by the Facebook App that will be created.
 PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1gYAn3dtJThtOUCMN1C2GVGAP8rjZADhY0mGqAoQvVphNPjT4GGjaVEkFbhKIcAKZATQTu7Bp73vBfZBQ5a77lWLuQzzVWM85FwgZDZD'
+
 
 @app.route('/', methods=['GET'])
 def handle_verification():
@@ -45,9 +49,6 @@ def handle_messages():
         sys.stdout.flush()
 
 
-_elize = eliza.Eliza()
-
-
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
@@ -55,6 +56,7 @@ def messaging_events(payload):
     try:
         print("METHOD messaging_events")
         data = json.loads(payload)
+        _db.record_incoming_message(data) # record to the database
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
@@ -104,6 +106,7 @@ def send_message(token, recipient, text):
 
         #make the request to facebook
         print("response data packet: ", data)
+        _db.record_outgoing_message(data) # record message to the database
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,
@@ -117,7 +120,6 @@ def send_message(token, recipient, text):
     finally:
         print('send_message Completed')
         sys.stdout.flush()
-
 
 
 if __name__ == '__main__':

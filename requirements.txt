@@ -23,4 +23,4 @@ http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz
 http://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz
 nltk==3.2.1
 textblob==0.11.1
-
+pymongo==3.4.0

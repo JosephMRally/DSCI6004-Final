@@ -10,7 +10,7 @@ complete. unit test for srt_parser
 complete. limit messages to 640 characters
 
 ITERATION 2
-MongoDB
+MongoDB db:heroku_7bgx0zzv
 complete. switch for video and text messages
 inprogress. abilty for user to thumb up? use for voting??
 mongodb for results?

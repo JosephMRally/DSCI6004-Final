@@ -89,7 +89,7 @@ def send_message(token, recipient, text):
                 "message": {"attachment": {
                         "type": "video",
                         "payload": {
-                            "url": "https://petersapparel.com/bin/clip.mp4"
+                            "url": "http://www.cartoonnetwork.com/video/steven-universe/catch-and-release-episode.html"
                         }
                     }
                 }

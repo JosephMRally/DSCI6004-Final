@@ -31,7 +31,7 @@ def handle_messages():
         payload = payload.decode("utf-8")
         print("Payload: ", payload)
         for sender, message in messaging_events(str(payload)):
-            print("Incoming from %s: %s" % (sender, message))
+            print("Response to %s: %s" % (sender, message))
             send_message(PAT, sender, message)
         sys.stdout.flush()
         return "ok"
@@ -45,6 +45,8 @@ def handle_messages():
 
 
 _elize = eliza.Eliza()
+
+
 def messaging_events(payload):
     """Generate tuples of (sender_id, message_text) from the
     provided payload.
@@ -55,11 +57,11 @@ def messaging_events(payload):
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
-                #yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
-                s = event["message"]["text"].encode('unicode_escape')
-                print("received: ", s)
-                s = str(s.decode("utf-8"))
-                response = _elize.analyze(s)
+                yield event["sender"]["id"], event["message"]["text"].encode('unicode_escape')
+                # s = event["message"]["text"].encode('unicode_escape')
+                # print("received: ", s)
+                # s = str(s.decode("utf-8"))
+                # response = _elize.analyze(s)
                 yield event["sender"]["id"], response
             else:
                 yield event["sender"]["id"], "I can't echo this"
@@ -78,7 +80,7 @@ def send_message(token, recipient, text):
     try:
         print("send_message")
 
-        text = text[:640]
+        text = text[:640] # TODO: wrong place for this
 
         #data
         data = None

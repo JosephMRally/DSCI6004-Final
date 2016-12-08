@@ -87,10 +87,22 @@ def send_message(token, recipient, text):
             data = json.dumps({
                 "recipient": {"id": recipient},
                 "message": {"attachment": {
-                        "type": "video",
+                        "type": "link",
                         "payload": {
-                            "url": "http://www.cartoonnetwork.com/video/steven-universe/catch-and-release-episode.html"
+                            "url": "https://youtu.be/5VqhIzigk1s"
                         }
+                        "quick_replies": [
+                            {
+                                "content_type": "text",
+                                "title": "Red",
+                                "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                            },
+                            {
+                                "content_type": "text",
+                                "title": "Green",
+                                "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                            }
+                        ],
                     }
                 }
             })

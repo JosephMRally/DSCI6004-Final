@@ -91,13 +91,6 @@ def send_message(token, recipient, text):
                     "type": "video",
                     "payload": {
                         "url": r"http:/\/\youtu.be/\5VqhIzigk1s"
-                    },
-                    "buttons": [
-                        {
-                            "type": "postback",
-                            "title": "Bookmark Item",
-                            "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                        }]
                     }
                 }
             })

@@ -53,20 +53,16 @@ def messaging_events(payload):
     provided payload.
     """
     try:
-        print("messaging_events")
+        print("METHOD messaging_events")
         data = json.loads(payload)
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
                 s = event["message"]["text"].encode('unicode_escape')
+                print("received: ", s)
                 s = str(s.decode("utf-8"))
-                s = parse.urlencode(s)
-                yield event["sender"]["id"], s
-                # s = event["message"]["text"].encode('unicode_escape')
-                # print("received: ", s)
-                # s = str(s.decode("utf-8"))
-                # response = _elize.analyze(s)
-                #yield event["sender"]["id"], response
+                response = _elize.analyze(s)
+                yield event["sender"]["id"], response
             else:
                 yield event["sender"]["id"], "I can't echo this"
     except Exception as err:
@@ -89,27 +85,27 @@ def send_message(token, recipient, text):
         data = None
         # if text.startswith("http"):
         #     # https://developers.facebook.com/docs/messenger-platform/send-api-reference/video-attachment
-        #     data = json.dumps({
-        #         "recipient": {"id": recipient},
-        #         "message": {"attachment": {
-        #                 "type": "video",
-        #                 "payload": {
-        #                     "url": "http://youtu.be/5VqhIzigk1s"
-        #                 },
-        #                 "buttons": [
-        #                     {
-        #                         "type": "postback",
-        #                         "title": "Bookmark Item",
-        #                         "payload": "DEVELOPER_DEFINED_PAYLOAD"
-        #                     }]
-        #             }
-        #         }
-        #     })
-        # else:
         data = json.dumps({
             "recipient": {"id": recipient},
-            "message": {"text": text}
-        })
+            "message": {"attachment": {
+                    "type": "video",
+                    "payload": {
+                        "url": r"http:/\/\youtu.be/\5VqhIzigk1s"
+                    },
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Bookmark Item",
+                            "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                        }]
+                    }
+                }
+            })
+        # else:
+        # data = json.dumps({
+        #     "recipient": {"id": recipient},
+        #     "message": {"text": text}
+        # })
 
         #make the request to facebook
         print("response data packet: ", data)

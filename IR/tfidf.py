@@ -6,7 +6,7 @@ import re
 import sys
 import heapq
 
-from PorterStemmer import PorterStemmer
+from IR.PorterStemmer import PorterStemmer
 
 class TFIDF:
 

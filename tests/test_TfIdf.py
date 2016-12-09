@@ -3,6 +3,7 @@ import nose
 from nose.tools import assert_equal, assert_not_equal
 
 import IR.tfidf
+import srt_parser
 
 class test__tfidf(object):
     obj = None # object to test
@@ -18,4 +19,4 @@ class test__tfidf(object):
         # tf = IR.tfidf.TfIdf()
         # tf.index(document)
         # x = tf.query('a')
-
+        pass

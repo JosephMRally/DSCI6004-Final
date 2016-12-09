@@ -86,10 +86,10 @@ def send_message(token, recipient, text):
 
         text = text[:640] # TODO: wrong place for this
         #data
-        data = json.dumps({
+        data = {
             "recipient": {"id": recipient},
             "message": {"text": text}
-        })
+        }
 
         #make the request to facebook
         # print("response data packet: ", data)
@@ -98,7 +98,9 @@ def send_message(token, recipient, text):
         # print("1")
         # #data = json.dumps(data)
         # print("2")
+        data = json.dumps(data)
 
+        
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,

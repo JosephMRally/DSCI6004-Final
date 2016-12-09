@@ -85,14 +85,13 @@ def send_message(token, recipient, text):
         print("send_message")
 
         text = text[:640] # TODO: wrong place for this
-        #data
+
+        #make the request to facebook
+
         data = json.dumps({
             "recipient": {"id": recipient},
             "message": {"text": text}
         })
-
-        #make the request to facebook
-        # _db.record_outgoing_message(data) # record message to the database
 
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
@@ -100,6 +99,13 @@ def send_message(token, recipient, text):
             headers={'Content-type': 'application/json'})
         if r.status_code != requests.codes.ok:
             print(r.text)
+
+        #record to database
+        data = json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text}
+        })
+        _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception!")
         print(str(err))

@@ -4,7 +4,7 @@ import random
 import srt_parser
 import IR.tfidf
 
-class mrrogers_tfidf:
+class Mrrogers_Tfidf:
     _corpus = None
     _tfidf = None
 

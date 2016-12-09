@@ -20,7 +20,7 @@ PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1
 
 # TODO: factory pattern here to determine which engine to use
 #_engine = eliza.Eliza()
-_engine = mrrogers_tfidf()
+_engine = mrrogers_tfidf.Mrrogers_Tfidf()
 
 
 

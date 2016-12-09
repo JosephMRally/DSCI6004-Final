@@ -101,10 +101,10 @@ def send_message(token, recipient, text):
             print(r.text)
 
         #record to database
-        data = json.dumps({
+        data = {
             "recipient": {"id": recipient},
             "message": {"text": text}
-        })
+        }
         _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception!")

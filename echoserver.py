@@ -104,8 +104,8 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # })
         data = {
-            "recipient": {"id": recipient},
-            "message": {"text": text}
+            "recipient": {"id": str(recipient)},
+            "message": {"text": str(text)}
         }
 
         #make the request to facebook

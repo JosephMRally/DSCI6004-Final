@@ -5,18 +5,17 @@ from nose.tools import assert_equal, assert_not_equal
 import IR.tfidf
 import srt_parser
 
-class test__tfidf(object):
-    obj = None # object to test
+
+class test_tfidf(object):
 
     def setup(self):
         print("setup")
         self.parser = srt_parser.Srt_Parser(di_path='/Users/Mac/GitHub/DSCI6004-Final')
-        tf = IR.tfidf.TfIdf()
-        tf
+        self.tf = IR.tfidf.TFIDF()
+        self.tf.read_data(self.parser.episodes)
+        self.tf.index()
+        self.tf.compute_tfidf()
 
     def test_command_episode(self):
-        # document = [ 'a b c d a', 'a b c' ]
-        # tf = IR.tfidf.TfIdf()
-        # tf.index(document)
-        # x = tf.query('a')
-        pass
+        ranked = self.tf.query_rank("plant")
+        print(ranked)

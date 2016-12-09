@@ -5,8 +5,8 @@ import os
 import re
 import sys
 import heapq
+import IR.PorterStemmer
 
-from IR.PorterStemmer import PorterStemmer
 
 class TFIDF:
 
@@ -17,7 +17,7 @@ class TFIDF:
         self.vocab = []
         # For the text pre-processing.
         self.re_alphanum = re.compile(r'[^a-zA-Z0-9]')
-        self.p = PorterStemmer()
+        self.p = IR.PorterStemmer.PorterStemmer()
 
     def get_uniq_words(self):
         uniq = set()
@@ -29,60 +29,27 @@ class TFIDF:
     def __read_raw_data(self, episodes):
         print("Stemming Documents...")
 
+        titles = []
+        docs = []
         for episode in episodes:
-            for word in episode.word:
+            contents = []
+            for word in episode.words:
                 # make sure everything is lower case
                 word = word.lower()
                 # split on whitespace
-                #line = [xx.strip() for xx in line.split()]
                 # remove non alphanumeric characters
-                word = [self.alphanum.sub('', xx) for xx in word]
+                word = self.re_alphanum.sub('', word)
                 # remove any words that are now empty
-                #line = [xx for xx in line if xx != '']
+                line = word if word is not '' else "asdfasdfasdfasdfasf"
                 # stem words
                 word = self.p.stem(word)
                 # add to the document's conents
-                contents.extend(line)
-                if len(line) > 0:
-                    of.write(" ".join(line))
-                    of.write('\n')
-            # f.close()
-            # of.close()
-            # docs.append(contents)
+                contents.extend([word])
+            titles.append(episode.name)
+            docs.append(contents)
         return titles, docs
 
-    # def __read_stemmed_data(self, dirname):
-    #     print("Already stemmed!")
-    #     titles = []
-    #     docs = []
-    #
-    #     # make sure we're only getting the files we actually want
-    #     filenames = []
-    #     for filename in os.listdir('%s/stemmed' % dirname):
-    #         if filename.endswith(".txt") and not filename.startswith("."):
-    #             filenames.append(filename)
-    #
-    #     if len(filenames) != 60:
-    #         msg = "There are not 60 documents in ../data/RiderHaggard/stemmed/\n"
-    #         msg += "Remove ../data/RiderHaggard/stemmed/ directory and re-run."
-    #         raise Exception(msg)
-    #
-    #     for i, filename in enumerate(filenames):
-    #         title = filename.split('.')[0]
-    #         titles.append(title)
-    #         contents = []
-    #         f = open('%s/stemmed/%s' % (dirname, filename), 'r')
-    #         for line in f:
-    #             # split on whitespace
-    #             line = [xx.strip() for xx in line.split()]
-    #             # add to the document's conents
-    #             contents.extend(line)
-    #         f.close()
-    #         docs.append(contents)
-    #
-    #     return titles, docs
-
-    def read_data(self, dirname):
+    def read_data(self, episodes):
         """
         Given the location of the 'data' directory, reads in the documents to
         be indexed.
@@ -97,15 +64,15 @@ class TFIDF:
         # if 'stemmed' in subdirs:
         #     titles, docs = self.__read_stemmed_data(dirname)
         # else:
-        titles, docs = self.__read_raw_data(dirname)
+        titles, docs = self.__read_raw_data(episodes)
         #
         # # Sort document alphabetically by title to ensure we have the proper
         # # document indices when referring to them.
         # ordering = [idx for idx, title in sorted(enumerate(titles),
         #     key = lambda xx : xx[1])]
 
-        # self.titles = []
-        # self.docs = []
+        self.titles = titles
+        self.docs = docs
         # numdocs = len(docs)
         # for d in range(numdocs):
         #     self.titles.append(titles[ordering[d]])
@@ -131,7 +98,7 @@ class TFIDF:
             # word_doc_indexes = index of doc containing word: offsets of word in doc
             word_doc_indexes = self.inv_index[word]
             idf = logN - math.log(len(word_doc_indexes), 10)
-            for d,offsets in word_doc_indexes.items():
+            for d, offsets in word_doc_indexes.items():
                 if word not in self.tfidf:
                     self.tfidf[word] = {} # Empty placeholder value; Like null
                 tf = 1.0 + math.log(len(offsets), 10)
@@ -180,8 +147,8 @@ class TFIDF:
 
         inv_index = {}
 
-        for i,title in enumerate(self.titles):
-            for j,word in enumerate(self.docs[i]):
+        for i, title in enumerate(self.titles):
+            for j, word in enumerate(self.docs[i]):
 
                 if not word in inv_index:
                     inv_index[word] = {}
@@ -254,7 +221,7 @@ class TFIDF:
                     norm = sqrt(d_vec[w]**2) for all words w in doc number d
             """
 
-            d_vec = dict((word, self.tfidf[word].get(d,0.0)) for word in query_vec)
+            d_vec = dict((word, self.tfidf[word].get(d, 0.0)) for word in query_vec)
             return sum(query_vec[word] * d_vec[word] for word in d_vec)/self.tfidf_l2norm[d]
 
         # Compute scores and add to a priority queue

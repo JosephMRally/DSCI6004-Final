@@ -11,13 +11,17 @@ complete. limit messages to 640 characters
 
 ITERATION 2
 complete. MongoDB db
-complete. switch for video and text messages
-inprogress. abilty for user to thumb up? use for voting??
-mongodb for results?
+complete. IR. TF-IDF & stemming & cosimmilarity
+kertosis in hit.
+puppet show for non hits
+
+ITERATION 3
+abilty for user to thumb up? use for voting??
+switch for video and text messages
+complete. mongodb for results?
 pick up on username
 greet user with name and theme song. (no userid in mongodb)
 multiple messages over 640 characters
-inprogress. IR. TF-IDF & jaccard similarity & stemming
 
 ITERATION 3
 keep track of users messages

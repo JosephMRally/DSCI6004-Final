@@ -15,7 +15,7 @@ class Mrrogers_Tfidf:
             self._corpus = di_corpus
 
         self._tfidf = IR.tfidf.TFIDF()
-        self._tfidf.read_data(self.parser.episodes)
+        self._tfidf.read_data(self._corpus.episodes)
         self._tfidf.index()
         self._tfidf.compute_tfidf()
 

@@ -10,7 +10,7 @@ class test__Mongo(object):
         self.db = Mongo.DB()
 
     def test_command_episode(self):
-        self.db.record_outgoing_message({"test":["a"]})
+        self.db.record_outgoing_message({'message': {'text': 'bbb'}, 'recipient': {'id': 'aaa'}})
         self.db.record_incoming_message({"test":["a"]})
         pass
 

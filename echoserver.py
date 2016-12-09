@@ -104,21 +104,20 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # })
         data = {
-            "recipient": {"id": str(recipient)},
-            "message": {"text": str(text)}
-        }
-        data = {
-            "recipient": {"id": "aaa"},
-            "message": {"text": "bbb"}
+            "recipient": {"id": recipient},
+            "message": {"text": text}
         }
 
         #make the request to facebook
         print("response data packet: ", data)
         print(type(data))
         _db.record_outgoing_message(data) # record message to the database
+        print("1")
+        data = json.dumps(data)
+        print("2")
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
-            data=json.dumps(data),
+            data=data,
             headers={'Content-type': 'application/json'})
         if r.status_code != requests.codes.ok:
             print(r.text)

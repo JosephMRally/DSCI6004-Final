@@ -114,7 +114,7 @@ def send_message(token, recipient, text):
         _db.record_outgoing_message(data) # record message to the database
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
-            data=data,
+            data=json.dumps(data),
             headers={'Content-type': 'application/json'})
         if r.status_code != requests.codes.ok:
             print(r.text)

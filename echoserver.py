@@ -94,7 +94,7 @@ def send_message(token, recipient, text):
         #make the request to facebook
         # print("response data packet: ", data)
         # print(type(data))
-        # _db.record_outgoing_message(data) # record message to the database
+         _db.record_outgoing_message(data) # record message to the database
         # print("1")
         # #data = json.dumps(data)
         # print("2")

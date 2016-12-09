@@ -107,6 +107,10 @@ def send_message(token, recipient, text):
             "recipient": {"id": str(recipient)},
             "message": {"text": str(text)}
         }
+        data = {
+            "recipient": {"id": "aaa"},
+            "message": {"text": "bbb"}
+        }
 
         #make the request to facebook
         print("response data packet: ", data)

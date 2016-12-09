@@ -11,18 +11,19 @@ complete. limit messages to 640 characters
 
 ITERATION 2
 complete. MongoDB db
-complete. IR. TF-IDF & stemming & cosimmilarity
+complete. IR. TF-IDF & stemming & cosimmilarity. return total score and word scores
+complete. keep track of users messages
 kertosis in hit.
 puppet show for non hits
+vocabulary that have tf-idf scores, ranked with tf-idf scores
 
-ITERATION 3
+FUTURE
+use named tuples instead!
+refactor to have proper interfaces
 abilty for user to thumb up? use for voting??
 switch for video and text messages
 complete. mongodb for results?
 pick up on username
 greet user with name and theme song. (no userid in mongodb)
 multiple messages over 640 characters
-
-ITERATION 3
-keep track of users messages
 

@@ -203,10 +203,11 @@ class TFIDF:
         Given a query (a list of words), return a rank-ordered list of
         documents (by ID) and score for the query.
         """
-        # ------------------------------------------------------------------
-        # TODO: Implement cosine similarity between a document and a list of
-        #       query words.
-        # Use ltc.lnn method
+
+       """
+       return <tuple> (document_id, <tuple>(total score, score of each word))
+       return <class 'tuple'>: (1, (0.14681049969648288, {'almost': 0.4446578049034344, 'adult': 0.3916490539534377}))
+       """
 
         # Construct the query vector as a dict word:log(tf)
         query_vec = {}
@@ -222,14 +223,16 @@ class TFIDF:
             """
 
             d_vec = dict((word, self.tfidf[word].get(d, 0.0)) for word in query_vec)
-            return sum(query_vec[word] * d_vec[word] for word in d_vec)/self.tfidf_l2norm[d]
+            r = sum(query_vec[word] * d_vec[word] for word in d_vec)/self.tfidf_l2norm[d]
+            return (r, d_vec)
 
         # Compute scores and add to a priority queue
         scores = []
         for d in range(len(self.docs)):
             heapq.heappush(scores, (get_score(d), d))
 
-        return [(k,v) for v,k in heapq.nlargest(10,scores)] # Return top 10 scores
+        result = [(k,v) for v,k in heapq.nlargest(10,scores)] # Return top 10 scores
+        return result
 
     def process_query(self, query_str):
         """

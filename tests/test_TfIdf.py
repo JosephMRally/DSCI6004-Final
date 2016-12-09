@@ -18,4 +18,13 @@ class test_tfidf(object):
 
     def test_command_episode(self):
         ranked = self.tf.query_rank("plant")
-        print(ranked)
+        print("plant :", ranked)
+
+        ranked = self.tf.query_rank("almost")
+        print("almost:", ranked)
+
+        ranked = self.tf.query_rank("adult")
+        print("adult:", ranked)
+
+        ranked = self.tf.query_rank("almost adult")
+        print("almost adult", ranked)

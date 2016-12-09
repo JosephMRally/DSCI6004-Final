@@ -202,12 +202,10 @@ class TFIDF:
         """
         Given a query (a list of words), return a rank-ordered list of
         documents (by ID) and score for the query.
-        """
 
-       """
-       return <tuple> (document_id, <tuple>(total score, score of each word))
-       return <class 'tuple'>: (1, (0.14681049969648288, {'almost': 0.4446578049034344, 'adult': 0.3916490539534377}))
-       """
+        return <tuple> (document_id, <tuple>(total score, score of each word))
+        return <class 'tuple'>: (1, (0.14681049969648288, {'almost': 0.4446578049034344, 'adult': 0.3916490539534377}))
+        """
 
         # Construct the query vector as a dict word:log(tf)
         query_vec = {}
@@ -221,8 +219,7 @@ class TFIDF:
                     d_vec[word] = tfidf of word in doc number d
                     norm = sqrt(d_vec[w]**2) for all words w in doc number d
             """
-
-            d_vec = dict((word, self.tfidf[word].get(d, 0.0)) for word in query_vec)
+            d_vec = dict((word, self.tfidf[word].get(d, 0.0)) for word in query_vec if word in self.tfidf)
             r = sum(query_vec[word] * d_vec[word] for word in d_vec)/self.tfidf_l2norm[d]
             return (r, d_vec)
 
@@ -231,7 +228,7 @@ class TFIDF:
         for d in range(len(self.docs)):
             heapq.heappush(scores, (get_score(d), d))
 
-        result = [(k,v) for v,k in heapq.nlargest(10,scores)] # Return top 10 scores
+        result = [(k,v) for v,k in heapq.nlargest(10,scores) if v[0]>0] # Return top 10 scores and scores of zero
         return result
 
     def process_query(self, query_str):

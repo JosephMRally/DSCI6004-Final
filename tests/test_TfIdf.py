@@ -28,3 +28,6 @@ class test_tfidf(object):
 
         ranked = self.tf.query_rank("almost adult")
         print("almost adult", ranked)
+
+        ranked = self.tf.query_rank("zero")
+        assert len(ranked) == 0

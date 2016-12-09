@@ -1,9 +1,7 @@
 from __future__ import division
-import nose
-from nose.tools import assert_equal, assert_not_equal
 
-import eliza
 import srt_parser
+from engines import eliza
 
 
 class test__eliza(object):

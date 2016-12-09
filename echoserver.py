@@ -1,19 +1,27 @@
-from flask import Flask, request
 import json
-import requests
 import sys
-from urllib import parse
 
-import eliza
+import requests
+from flask import Flask, request
+
 import Mongo
+from engines import eliza
+from engines import mrrogers_tfidf
 
 app = Flask(__name__)
-_elize = eliza.Eliza()
+_engine = None
 _db = Mongo.DB()
 
 # This needs to be filled with the Page Access Token that will be provided
 # by the Facebook App that will be created.
 PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1gYAn3dtJThtOUCMN1C2GVGAP8rjZADhY0mGqAoQvVphNPjT4GGjaVEkFbhKIcAKZATQTu7Bp73vBfZBQ5a77lWLuQzzVWM85FwgZDZD'
+
+
+
+# TODO: factory pattern here to determine which engine to use
+#_engine = eliza.Eliza()
+_engine = mrrogers_tfidf
+
 
 
 @app.route('/', methods=['GET'])
@@ -60,12 +68,12 @@ def messaging_events(payload):
         messaging_events = data["entry"][0]["messaging"]
         for event in messaging_events:
             if "message" in event and "text" in event["message"]:
-                print(type(event["message"]["text"])) #str
+                #print(type(event["message"]["text"])) #str
                 s = event["message"]["text"].encode('unicode_escape')
-                print(type(s)) #byte?
+                #print(type(s)) #byte?
                 s = str(s.decode("utf-8"))
-                print("received: ", s)
-                response = _elize.analyze(s)
+                #print("received: ", s)
+                response = _engine.analyze(s)
                 yield event["sender"]["id"], response
             else:
                 yield event["sender"]["id"], "I can't echo this"

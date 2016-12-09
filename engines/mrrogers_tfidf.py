@@ -39,10 +39,10 @@ class Mrrogers_Tfidf:
 
         #if we have a query use if
         if len(responses)>0:
-            response_message = "hit but not implemented"
+            response_message = ["hit but not implemented"]
         #else show a puppet show with an apology
         else:
-            response_message = "Sorry I don't have an answer for you. Try 'popular questions'. In the mean time, enjoy this puppet show"
+            response_message = ["Sorry I don't have an answer for you. Try 'popular questions'. In the mean time, enjoy this puppet show"]
 
         # return the response
         response = random.choice(response_message)

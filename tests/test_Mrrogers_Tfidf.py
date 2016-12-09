@@ -14,7 +14,10 @@ class test__Mrrogers_Tfidf(object):
         self.engine = engines.mrrogers_tfidf.Mrrogers_Tfidf(di_corpus=parser)
 
     def test_command_episode(self):
-        self.engine.analyze("zero")
-        pass
+        x = self.engine.analyze("zero")
+        print(x)
 
+    def test_command_episode(self):
+        x = self.engine.analyze("plant")
+        print(x)
 

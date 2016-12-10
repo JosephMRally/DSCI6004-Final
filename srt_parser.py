@@ -53,8 +53,8 @@ class Srt_Parser:
         entry.words_unaltered = "" # TODO: make this into a first class data structure
 
         entry.words = []
-        entry.words_stemmed = [] # same size as .words
-        entry.words_lemonized = [] # same size as .words
+        #entry.words_stemmed = [] # same size as .words
+        #entry.words_lemonized = [] # same size as .words
         entry.line_number = [] # same size as .words
         entry.timing = [] # (s_timing, t_timing)
 
@@ -64,7 +64,7 @@ class Srt_Parser:
             s_start_time, s_end_time = [_.strip().replace(",",".") for _ in timing_info.split("-->")]
             dt_start_time = datetime.datetime.strptime(s_start_time, "%H:%M:%S.%f")
             dt_end_time = datetime.datetime.strptime(s_end_time, "%H:%M:%S.%f")
-            start_end = (dt_start_time, dt_end_time)
+            segment_start_end = (dt_start_time, dt_end_time)
 
             # all to full text
             entry.words_unaltered += " " + text
@@ -76,19 +76,19 @@ class Srt_Parser:
                 # special entry for the first word. record timing info
                 entry.words.append(words[0])
                 # entry.timing.append((len(entry.words)-1, s_start_time, t_start_time))
-                entry.timing.append(start_end)
+                entry.timing.append(segment_start_end)
                 entry.line_number.append(int(line_number))
 
             if len(words)>2: # more than one word
                 # do the middle words
                 entry.words.extend(words[1:-1])
-                entry.timing.append(start_end)
+                entry.timing.extend([segment_start_end]*len(words[1:-1]))
 
             if len(words)>1: # someones only one word
                 # special entry for the last word. record timing info
                 entry.words.append(words[-1])
                 # entry.timing.append((len(entry.words) - 1, s_end_time, t_end_time))
-                entry.timing.append(start_end)
+                entry.timing.append(segment_start_end)
         # polish
         entry.words_unaltered = entry.words_unaltered.strip()
 

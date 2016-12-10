@@ -36,6 +36,8 @@ class Mrrogers_Tfidf:
             return self._command_transcript_of_episode(statement)
         if "help" in statement:
             return self._command_help()
+        if "hello" in statement or "hi" == statement:
+            return self._command_hello()
 
         # Match user's input to responses in psychobabble. Then reflect candidate response."
         responses = self._tfidf.query_rank(statement)
@@ -116,4 +118,6 @@ class Mrrogers_Tfidf:
             "'popular questions', 'history', 'credits'. "
         return s
 
-
+    def _command_hello(self):
+        s = "https://youtube.com/embed/VyLgiPItJj0?autoplay=1&start=0&end=90 \n Type 'help' for instructions."
+        return s

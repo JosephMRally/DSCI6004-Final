@@ -14,6 +14,7 @@ class Srt_Parser:
     episodes.words
     episodes.line_number
     episodes.timing
+    episodes.youtubeurl
     """
     episodes = None
     _path = os.getcwd()
@@ -34,8 +35,13 @@ class Srt_Parser:
             logging.info("loading episode " + filename)
             textfile = open(path_and_directory + "/" + filename, 'r')
             text = str(textfile.read())
+
+            #create our data structure to hold stuff
+            #extract the name and you tube url
             entry = Expando() # dynamic object - cuz i love prototype languages
-            entry.name = filename # TODO: strip of postfix
+            x = filename.replace(".srt","").split("|")
+            entry.name = x[0]
+            entry.youtubeurl = x[1]
             self._transform_srt_to_tokens(entry, text)
             self.episodes.append(entry)
 
@@ -58,8 +64,6 @@ class Srt_Parser:
             s_start_time, s_end_time = [_.strip().replace(",",".") for _ in timing_info.split("-->")]
             dt_start_time = datetime.datetime.strptime(s_start_time, "%H:%M:%S.%f")
             dt_end_time = datetime.datetime.strptime(s_end_time, "%H:%M:%S.%f")
-            #t_start_time = dt_start_time.time()
-            #t_end_time = dt_end_time.time()
             start_end = (dt_start_time, dt_end_time)
 
             # all to full text

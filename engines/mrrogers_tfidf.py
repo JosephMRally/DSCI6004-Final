@@ -46,6 +46,7 @@ class Mrrogers_Tfidf:
             document_id = item[0]
             segments = dict(item[1][1])
             response_word = random.choice(list(segments.keys()))
+
             # retrieve the document
             document_of_episode = self._corpus.episodes[document_id]
             indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words) if value==response_word]
@@ -55,16 +56,18 @@ class Mrrogers_Tfidf:
             dt_end_time = timing_of_segment[1]
             dt_start_time = dt_start_time + timedelta(seconds=-30)
             dt_end_time = dt_end_time + timedelta(seconds=30)
+
             # check boundry points
             if dt_start_time.hour == 12:
                 dt_start_time = document_of_episode.timing[0]
             if dt_end_time > document_of_episode.timing[-1][1]:
                 dt_end_time == document_of_episode.timing[-1]
+
             # create url based off of start and end time
             # https://developers.google.com/youtube/player_parameters
             converter = lambda dt: dt.minute*60 + dt.second
-            url = "{0}?autoplay=1&start={1}&end={2}"
-            url = url.format("https://youtube.com/embed/osIpSDnLPi4", converter(dt_start_time), converter(dt_end_time))
+            url = "https://youtube.com/embed/{0}?autoplay=1&start={1}&end={2}"
+            url = url.format(document_of_episode.youtubeurl, converter(dt_start_time), converter(dt_end_time))
             response_message = [url]
         else:
             # else show a puppet show with an apology

@@ -54,7 +54,7 @@ class Mrrogers_Tfidf:
             timing_of_segment = document_of_episode.timing[index_of_response_word]
             dt_start_time = timing_of_segment[0]
             dt_end_time = timing_of_segment[1]
-            dt_start_time = dt_start_time + timedelta(seconds=-30)
+            dt_start_time = dt_start_time - timedelta(seconds=30)
             dt_end_time = dt_end_time + timedelta(seconds=30)
 
             # check boundry points

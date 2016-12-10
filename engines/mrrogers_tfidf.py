@@ -61,8 +61,9 @@ class Mrrogers_Tfidf:
             if dt_end_time > document_of_episode.timing[-1][1]:
                 dt_end_time == document_of_episode.timing[-1]
             #create url based off of start and end time
+            converter = lambda dt: dt.minute*60 + dt.second
             url = "{0}?autoplay=1&start={1}&end={2}"
-            url = url.format("https://youtu.be/osIpSDnLPi4", int(dt_start_time.time().strftime('%s')), int(dt_end_time.time().strftime('%s')))
+            url = url.format("https://youtu.be/osIpSDnLPi4", converter(dt_start_time), converter(dt_end_time))
             response_message = [url]
         else:
             # else show a puppet show with an apology

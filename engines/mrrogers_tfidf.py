@@ -63,7 +63,7 @@ class Mrrogers_Tfidf:
             #create url based off of start and end time
             converter = lambda dt: dt.minute*60 + dt.second
             url = "{0}?autoplay=1&start={1}&end=60"
-            url = url.format("https://youtu.be/osIpSDnLPi4", converter(dt_start_time), converter(dt_end_time))
+            url = url.format("https://youtube.com/embed/osIpSDnLPi4", converter(dt_start_time), converter(dt_end_time))
             response_message = [url]
         else:
             # else show a puppet show with an apology

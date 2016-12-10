@@ -58,9 +58,9 @@ class Srt_Parser:
             s_start_time, s_end_time = [_.strip().replace(",",".") for _ in timing_info.split("-->")]
             dt_start_time = datetime.datetime.strptime(s_start_time, "%H:%M:%S.%f")
             dt_end_time = datetime.datetime.strptime(s_end_time, "%H:%M:%S.%f")
-            t_start_time = dt_start_time.time()
-            t_end_time = dt_end_time.time()
-            start_end = (s_start_time, t_end_time)
+            #t_start_time = dt_start_time.time()
+            #t_end_time = dt_end_time.time()
+            start_end = (dt_start_time, dt_end_time)
 
             # all to full text
             entry.words_unaltered += " " + text

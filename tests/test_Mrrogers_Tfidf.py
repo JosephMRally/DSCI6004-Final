@@ -13,11 +13,11 @@ class test__Mrrogers_Tfidf(object):
         parser = srt_parser.Srt_Parser(di_path='/Users/Mac/GitHub/DSCI6004-Final')
         self.engine = engines.mrrogers_tfidf.Mrrogers_Tfidf(di_corpus=parser)
 
-    def test_command_episode(self):
+    def test_analyze_zero(self):
         x = self.engine.analyze("zero")
         print(x)
 
-    def test_command_episode(self):
-        x = self.engine.analyze("plant")
+    def test_analyze_plants(self):
+        x = self.engine.analyze("plants")
         print(x)
 

@@ -3,6 +3,9 @@ import random
 
 import srt_parser
 import IR.tfidf
+import datetime
+import time
+from datetime import timedelta
 
 class Mrrogers_Tfidf:
     _corpus = None
@@ -39,10 +42,33 @@ class Mrrogers_Tfidf:
 
         #if we have a query use if
         if len(responses)>0:
-            response_message = ["hit but not implemented"]
-        #else show a puppet show with an apology
+            item = responses[0]
+            document_id = item[0]
+            segments = dict(item[1][1])
+            response_word = random.choice(list(segments.keys()))
+            #retrieve the document
+            document_of_episode = self._corpus.episodes[document_id]
+            indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words) if value==response_word]
+            index_of_response_word = random.choice(indexes_of_response_word)
+            timing_of_segment = document_of_episode.timing[index_of_response_word]
+            dt_start_time = timing_of_segment[0]
+            dt_end_time = timing_of_segment[1]
+            dt_start_time = dt_start_time + timedelta(seconds=-30)
+            dt_end_time = dt_end_time + timedelta(seconds=30)
+            #check boundry points
+            if dt_start_time.hour == 12:
+                dt_start_time = document_of_episode.timing[0]
+            if dt_end_time > document_of_episode.timing[-1][1]:
+                dt_end_time == document_of_episode.timing[-1]
+            #create url based off of start and end time
+            url = "{0}?autoplay=1&start={1}&end={2}"
+            url = url.format("https://youtu.be/osIpSDnLPi4", int(dt_start_time.time().strftime('%s')), int(dt_end_time.time().strftime('%s')))
+            response_message = [url]
         else:
-            response_message = ["Sorry I don't have an answer for you. Try 'popular questions'. In the mean time, enjoy this puppet show"]
+            # else show a puppet show with an apology
+            response_message = ["Sorry I don't have an answer for you. ",
+                                "Try 'popular questions'. ",
+                                "In the meantime, enjoy this puppet show!"]
 
         # return the response
         response = random.choice(response_message)

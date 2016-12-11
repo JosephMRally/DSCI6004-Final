@@ -119,5 +119,10 @@ class Mrrogers_Tfidf:
         return s
 
     def _command_hello(self):
-        s = "https://youtube.com/embed/VyLgiPItJj0?autoplay=1&start=0&end=90 \n Type 'help' for instructions."
+        s = "It's a beautiful day in this neighborhood, \n" + \
+            "A beautiful day for a neighbor. \n" + \
+            "Would you be mine? \n" + \
+            "Could you be mine? \n" + \
+            "https://youtube.com/embed/VyLgiPItJj0?autoplay=1&start=0&end=90 \n" + \
+            "Type 'help' for instructions."
         return s

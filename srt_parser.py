@@ -4,7 +4,7 @@ import collections
 import time
 import datetime
 from textblob import TextBlob
-
+import IR.PorterStemmer
 
 class Srt_Parser:
     # instance variables
@@ -18,6 +18,7 @@ class Srt_Parser:
     """
     episodes = None
     _path = os.getcwd()
+    _p = IR.PorterStemmer.PorterStemmer()
 
     # constructor
     def __init__(self, di_path=None):
@@ -53,7 +54,7 @@ class Srt_Parser:
         entry.words_unaltered = "" # TODO: make this into a first class data structure
 
         entry.words = []
-        #entry.words_stemmed = [] # same size as .words
+        entry.words_stemmed = [] # same size as .words
         #entry.words_lemonized = [] # same size as .words
         entry.line_number = [] # same size as .words
         entry.timing = [] # (s_timing, t_timing)
@@ -78,17 +79,21 @@ class Srt_Parser:
                 # entry.timing.append((len(entry.words)-1, s_start_time, t_start_time))
                 entry.timing.append(segment_start_end)
                 entry.line_number.append(int(line_number))
+                entry.words_stemmed.append(self._p.stem(words[0]))
 
             if len(words)>2: # more than one word
                 # do the middle words
                 entry.words.extend(words[1:-1])
                 entry.timing.extend([segment_start_end]*len(words[1:-1]))
+                entry.words_stemmed.extend([self._p.stem(_) for _ in words[1:-1]])
 
             if len(words)>1: # someones only one word
                 # special entry for the last word. record timing info
                 entry.words.append(words[-1])
                 # entry.timing.append((len(entry.words) - 1, s_end_time, t_end_time))
                 entry.timing.append(segment_start_end)
+                entry.words_stemmed.append(self._p.stem(words[-1]))
+
         # polish
         entry.words_unaltered = entry.words_unaltered.strip()
 

@@ -1,13 +1,14 @@
 from __future__ import division
 import nose
-from nose.tools import assert_equal, assert_not_equal
+#from nose.tools import assert_equal, assert_not_equal
+from nose.tools import *
 import Mongo
 import os
 
 import srt_parser
 import engines.mrrogers_tfidf
 
-class test__Mrrogers_Tfidf(object):
+class test_Mrrogers_Tfidf(object):
 
     def setup(self):
         parser = srt_parser.Srt_Parser(di_path='/Users/Mac/GitHub/DSCI6004-Final')
@@ -15,9 +16,18 @@ class test__Mrrogers_Tfidf(object):
 
     def test_analyze_zero(self):
         x = self.engine.analyze("zero")
-        print(x)
+        assert(x.startswith(r"Sorry I don't have an answer for you."))
 
     def test_analyze_plants(self):
         x = self.engine.analyze("plants")
-        print(x)
+        assert(x.startswith(r"https://youtube.com/embed/VyLgiPItJj0"))
 
+
+    def test_analyze_table(self):
+        x = self.engine.analyze("table")
+        assert (x.startswith(r"https://youtube.com/embed/VyLgiPItJj0"))
+
+
+    def test_analyze_tabl(self):
+        x = self.engine.analyze("tabl")
+        assert (x.startswith(r"Sorry I don't have an answer for you.")), x

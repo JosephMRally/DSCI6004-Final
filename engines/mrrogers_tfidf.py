@@ -24,7 +24,7 @@ class Mrrogers_Tfidf:
 
     # main routine to process requests
     def analyze(self, statement):
-        print("METHOD: Analyze")
+        print("CLASS: Mrrogers_Tfidf, METHOD: Analyze")
         print("statement", statement)
         statement = statement.lower()
 
@@ -51,7 +51,7 @@ class Mrrogers_Tfidf:
 
             # retrieve the document
             document_of_episode = self._corpus.episodes[document_id]
-            indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words) if value==response_word]
+            indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words_stemmed) if value==response_word]
             index_of_response_word = random.choice(indexes_of_response_word)
             timing_of_segment = document_of_episode.timing[index_of_response_word]
             dt_start_time = timing_of_segment[0]

@@ -31,3 +31,9 @@ class test_Mrrogers_Tfidf(object):
     def test_analyze_tabl(self):
         x = self.engine.analyze("tabl")
         assert (x.startswith(r"Sorry I don't have an answer for you.")), x
+
+    def test_analyze_kitty(self):
+        x = self.engine.analyze("kitty")
+        assert (x.startswith(r"Sorry I don't have an answer for you.")), x
+
+

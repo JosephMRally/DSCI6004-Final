@@ -109,10 +109,21 @@ def send_message(token, recipient, text):
             print(r.text)
 
         #record to database
+        # data = {
+        #     "recipient": {"id": recipient},
+        #     "message": {"text": text}
+        # }
         data = {
             "recipient": {"id": recipient},
-            "message": {"text": text}
+            "message": {"attachment": {
+                "type": "video",
+                "payload": {
+                    "url": text
+                    }
+                }
+            }
         }
+
         _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception!")

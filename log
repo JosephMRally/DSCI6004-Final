@@ -14,9 +14,12 @@ complete. MongoDB db
 complete. IR. TF-IDF & stemming & cosimmilarity. return total score and word scores
 complete. keep track of users messages
 
+ITERATION 3
+complete. puppet show for non hits
+
+
 
 FUTURE
-puppet show for non hits
 vocabulary that have tf-idf scores, ranked with tf-idf scores
 use named tuples instead!
 refactor to have proper interfaces

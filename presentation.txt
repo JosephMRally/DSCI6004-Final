@@ -1,0 +1,88 @@
+Welcome ladies and gentlemen, my presentation is called 'Mr Rogers Neighborhood video chatbot'. Before I go into the nerdy stuff, I would like to speak to you about the inspiration of this project. Fred McFeely Rogers, known to his audience as Mr Rogers, is a great man because he single handly caused a paradigm shift within our culture.
+
+http://www.biography.com/people/fred-rogers-9462161
+
+Fred Rogers road to greatness came during his senior year of college when his parents got a television in the early 1950. He immediately saw it's potential and decided he wanted to become part of it, by 1953 he was working for WQED in Pittsburgh and eventually made his way on stage as a puppettier. Fred had strong opinions about the majority of programs that were being aired at the time, he found them to be a negative force.
+
+https://www.youtube.com/watch?v=pdJVX2SINaA
+
+In 1966 he launched his own show called 'Mr Rogers Neighbothood'. His signature show opening sequence, where he takes off his jacket and puts on a zippered cardigan sweater, changes his dress shoes for a pair of sneakers. What he was doing, what he was indicating, was he was getting comfortable, and you can too. The first shows were aired from his house. The great thing about this opening sequence was that back in the early day's of his show was all live video, his opening sequence was because he was running late from his day job, he just played it off as if it was normal; and hence his opening sequence
+
+His show was so popular that within the first two years of it's airing it became national and ran for 33 seasons; making it the longest non-news shows. His show was seen by hundreds of millions of children.
+
+This is a perfect segway into his greatness, the only reason why we have PBS today is because of Fred Rogers. In 1971 the senate was looking to completely defund PBS, due to his testimony alone the senante not only changed their mind but increased it's funding from 9 to 22 million. Keep in mind that this was before the hyperinflation period of the 1970's, that like somewhere of 100 million in todays dollars. One man.
+
+
+
+
+
+I like interactive presentations. Can i get everyone to open their computers and go to
+
+https://www.facebook.com/MrRogersChatbot
+
+Now if I can get everyone to press the 'like' button. Now can I get everyone to press the 'send message' or 'message' button and say 'hello'.
+
+
+
+
+[type in 'plants', play 486.]
+
+
+Currently there are only two episodes loaded into the system hence it only has a vocabulary of 909 words. Hence here are words that will give good results.
+
+' '.join ([list(self._tfidf.query_rank(_)[0][1][1].keys())[0] for _ in set(self._corpus.episodes[0].words + self._corpus.episodes[1].words) if len(self._tfidf.query_rank(_)) == 1 and self._tfidf.query_rank(_)[0][0] > .35])
+
+while servic weed lane onc boom respons surpris leg yo wish draw somedai dry custom shall screw refus mention fear peacelov deleg meet roll again flower same six byeby consid suit fine seem ground necessari pickup black color fisher anger earlier kind malcolm emerg bet game low gui hope situat full blue seem fun darl without wall floor often dispos street maggi wait huge heavi sire among avenu tini concern conced ourselv everywher man stori under growth made friendli page uniform staff maintain cat fast an panda pretti borrow fire a4a somehow confront mai wish deliber mayor sens proce crawl repres home color red furi tell panda born cattl refriger hei feed meet long design perfect bean grown stori mist children forest progress hope negoti con need lol fanci todai roll few width creep ca excus 1i spear na almost longer read court aber cram whose nobodi bender speedi kitten histori quit glass em peac gon life outsid toward link campaign second daddi until ida check young librari gestur friski deliveri rather left nagger brad igloo purpl outta kitti best enjoi planet presum planet woman presum gave pass leav plant abl blame marri beam patent becom serv gone human westwood asid purpl cry roll round seen wait alreadi speak platter mcfeeli labor dandelion betsi sink monei direct hope obvious advertis ever size peekaboo report adult least impress check warn grate their henrietta intermedi chair read sun breakfast condit mass order war els patienc potti pass run neighbourli golden forc grace save suppos teetertott set grownup true troop jimmi secondguess una funni virtual forgot anim scari tabl arriv daisi k correct teetertott light caddi silli door knew grew sigh pass uhhuh
+
+tell me about plants
+tell me about flowers
+tell me about purple panda
+tell me about lady lane
+tell me about
+
+tell me about zero
+
+
+
+
+Artitecture
+MVC - Model View Controller
+Controller - echoserver.py
+Model - srt_parser. not properly abstracted out.
+View - text / facebook
+
+chatbot engine
+eliza.py
+mrrogers_tfidf.py
+they both have the same interface and hence a factory pattern should be placed in the controller to call the appropriate engine.
+
+Mr Rogers is a combination of a rule based and retrival based chatbot. hard coded rules go first, they consist of obvious commands like hello, help, episodes, transcripts.
+
+srt_parser.py parses the closed caption info from videos into a corpus while retaining the timming info, hence my corpus is not per say 'word' based but token based because it has to contain metadata, timing, word, stemmed word.  I started with brians tf-idf algorithem and retrofitted it to work of these tokens; there is still a lot of work I would like to do but due to time constraints I was not able to do so.
+
+
+
+Deployment
+heroku
+git
+
+
+
+Unit Tests
+1. how they save time
+
+
+
+
+Agile
+1. iterations
+show log
+
+
+
+Future
+1. email to PBS
+2. get the full transcripts, real CC info
+3. rework TF-IDF to fully work of the tokens
+4. multiple TV shows, be able to also do SS.
+5. make a spliced playlist based on keywords

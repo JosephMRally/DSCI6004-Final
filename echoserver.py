@@ -106,7 +106,7 @@ def send_message(token, recipient, text):
             "message": {"attachment": {
                 "type": "video",
                 "payload": {
-                    "url": text
+                    "url": json.dump(text)
                     }
                 }
             }

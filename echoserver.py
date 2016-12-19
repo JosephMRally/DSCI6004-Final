@@ -125,6 +125,7 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # }
 
+        print("data: ", data)
         _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception!")

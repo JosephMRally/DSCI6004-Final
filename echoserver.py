@@ -108,7 +108,7 @@ def send_message(token, recipient, text):
         data['recipient'] = {"id": recipient}
         data['message'] = {
                 "text": "https:\/\/l.facebook.com",
-                "attachments": [{
+                "attachment": [{
                     "title": "this is a test",
                     "url": "https:\/\/l.facebook.com",
                     "type": "fallback",

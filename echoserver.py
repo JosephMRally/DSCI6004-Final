@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https://youtube.com/embed/VyLgiPItJj0"}
+                    "payload": {"url": "https:\/\/manifest.googlevideo.com\/api\/manifest\/dash\/playback_host\/r8---sn-a8au-nh4e.googlevideo.com\/ei\/DZZYWJfFNPCl-APnr6fgAg\/upn\/PGcYhmAkXnE\/expire\/1482222190\/key\/yt6\/initcwndbps\/5081250\/as\/fmp4_audio_clear%2Cwebm_audio_clear%2Cwebm2_audio_clear%2Cfmp4_sd_hd_clear%2Cwebm2_sd_hd_clear\/signature\/0E26FE516FB81808DB72066D6F94648828FE1B6B.2468F89D4E9BBF89BAC9BAEA78614F4886C319EF\/ipbits\/0\/hfr\/1\/mm\/31\/ip\/4.15.127.68\/mn\/sn-a8au-nh4e\/ms\/au\/mt\/1482200503\/mv\/m\/id\/o-ADYD6wUvSNVerODZOvleTbrXf_8W6tvY97rdaqVWFR1M\/itag\/0\/pl\/21\/source\/youtube\/sparams\/as%2Cei%2Chfr%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Cmm%2Cmn%2Cms%2Cmv%2Cpl%2Cplayback_host%2Crequiressl%2Csource%2Cexpire\/requiressl\/yes"}
                 }
             }
 

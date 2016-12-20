@@ -1,6 +1,6 @@
 import json
 import sys
-import urllib
+import urllib as urllib
 
 import requests
 from flask import Flask, request
@@ -107,7 +107,7 @@ def send_message(token, recipient, text):
             "message": {"attachment": {
                 "type": "video",
                 "payload": {
-                    "url": urllib.urlencode(text)
+                    "url": urllib.urllib.urlencode(text)
                     }
                 }
             }

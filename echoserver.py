@@ -106,7 +106,7 @@ def send_message(token, recipient, text):
         data = {
             "recipient": {"id": recipient},
             "message": {
-                "is_echo": 'true',
+                "is_echo": True,
                 "app_id": APP_ID,
                 "attachments": [{
                     "type": "video",

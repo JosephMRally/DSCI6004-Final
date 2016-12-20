@@ -117,7 +117,7 @@ def send_message(token, recipient, text):
         data = json.dumps(data)
         print("data: ", data)
 
-        r = request.post("https://graph.facebook.com/v2.6/me/messages",
+        r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,
             headers={'Content-type': 'application/json'},

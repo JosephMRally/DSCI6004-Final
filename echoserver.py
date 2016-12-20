@@ -104,6 +104,7 @@ def send_message(token, recipient, text):
         # })
 
         data = {
+            "sender": {"id": APP_ID},
             "recipient": {"id": recipient},
             "message": {
                 "is_echo": True,

@@ -16,7 +16,7 @@ _db = Mongo.DB()
 # This needs to be filled with the Page Access Token that will be provided
 # by the Facebook App that will be created.
 PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1gYAn3dtJThtOUCMN1C2GVGAP8rjZADhY0mGqAoQvVphNPjT4GGjaVEkFbhKIcAKZATQTu7Bp73vBfZBQ5a77lWLuQzzVWM85FwgZDZD'
-
+APP_ID = '744391742366207'
 
 
 # TODO: factory pattern here to determine which engine to use
@@ -104,14 +104,17 @@ def send_message(token, recipient, text):
 
         data = {
             "recipient": {"id": recipient},
-            "message": {"attachment": {
+            "message": {"attachments": [{
+                "is_echo": 'true',
+                "app_id" : APP_ID,
                 "type": "video",
                 "payload": {
                     "url": urllib.urlencode(text)
-                    }
-                }
+                        }
+                    }]
             }
         }
+        print("data: ", data)
 
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
@@ -126,7 +129,6 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # }
 
-        print("data: ", data)
         _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception!")

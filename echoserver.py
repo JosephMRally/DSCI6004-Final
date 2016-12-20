@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
                 "app_id" : APP_ID,
                 "type": "video",
                 "payload": {
-                    "url": urllib.urlencode(text)
+                    "url": urllib.urlencode("https://youtube.com/")
                         }
                     }]
             }
@@ -131,7 +131,7 @@ def send_message(token, recipient, text):
 
         _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
-        print("Exception!")
+        print("Exception! method: send_message")
         print(str(err))
         #raise err # dont ever throw errors up the stack from hereon, don't crash the app domain
     finally:

@@ -11,7 +11,7 @@ class test_echoserver(object):
 
     def test_send_message(self):
         token = "xxxxxx"
-        recipient = obj.PAT
+        recipient = self.obj.PAT
         text = "http://cnn.com"
-        response = self.obj.send_message()
+        response = self.obj.send_message(token, recipient, text)
 

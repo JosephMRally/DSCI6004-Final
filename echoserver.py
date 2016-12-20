@@ -114,7 +114,7 @@ def send_message(token, recipient, text):
                 "app_id" : APP_ID,
                 "type": "video",
                 "payload": {
-                    "url": urllib.urlencode("https://youtube.com/")
+                    "url": urllib.quote_plus("https://youtube.com/")
                         }
                     }]
             }

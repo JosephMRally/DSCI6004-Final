@@ -89,7 +89,7 @@ def messaging_events(payload):
         sys.stdout.flush()
 
 
-async def send_message(token, recipient, text):
+def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
     """
     try:
@@ -125,13 +125,13 @@ async def send_message(token, recipient, text):
         if r.status_code != requests.codes.ok:
              print(r.text)
 
-         #record to database
+         # record to database
          # data = {
          #     "recipient": {"id": recipient},
          #     "message": {"text": text}
          # }
 
-         _db.record_outgoing_message(dict(data)) # record message to the database
+         #_db.record_outgoing_message(dict(data)) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

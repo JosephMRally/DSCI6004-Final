@@ -66,7 +66,7 @@ def messaging_events(payload):
     try:
         print("METHOD messaging_events")
         # TODO: factory pattern here
-        if _engine == None: # lazy evaluation
+        if _engine is None: # lazy evaluation
             _engine = mrrogers_tfidf.Mrrogers_Tfidf()
 
         data = json.loads(payload)

@@ -107,14 +107,13 @@ def send_message(token, recipient, text):
         data['sender'] = {"id": APP_ID}
         data['recipient'] = {"id": recipient}
         data['message'] = {
-                "is_echo": True,
-                "app_id": APP_ID,
+                "text": "https:\/\/l.facebook.com",
                 "attachments": [{
-                    "type": "video",
-                    "payload": {
-                        "url": urllib.quote_plus("https://youtube.com/")
-                            }
-                        }]
+                    "title": "this is a test",
+                    "url": "https:\/\/l.facebook.com",
+                    "type": "fallback",
+                    "payload": None
+                }]
             }
 
         data = json.dumps(data)

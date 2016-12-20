@@ -119,7 +119,8 @@ def send_message(token, recipient, text):
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,
-            headers={'Content-type': 'application/json'})
+            headers={'Content-type': 'application/json'},
+            timeout=60)
         if r.status_code != requests.codes.ok:
             print(r.text)
 

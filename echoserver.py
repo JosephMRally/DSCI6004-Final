@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https://www.youtube.com/watch?v=XwvjMg_O_Wg"}
+                    "payload": {"url": urllib.quote_plus("https://www.youtube.com/watch?v=XwvjMg_O_Wg")}
                 }
             }
 

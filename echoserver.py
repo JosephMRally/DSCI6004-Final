@@ -105,14 +105,15 @@ def send_message(token, recipient, text):
 
         data = {
             "recipient": {"id": recipient},
-            "message": {"attachments": [{
+            "message": {
                 "is_echo": 'true',
-                "app_id" : APP_ID,
-                "type": "video",
-                "payload": {
-                    "url": urllib.quote_plus("https://youtube.com/")
-                        }
-                    }]
+                "app_id": APP_ID,
+                "attachments": [{
+                    "type": "video",
+                    "payload": {
+                        "url": urllib.quote_plus("https://youtube.com/")
+                            }
+                        }]
             }
         }
         print("data: ", data)

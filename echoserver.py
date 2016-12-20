@@ -1,7 +1,7 @@
 import json
 import sys
 import urllib.parse as urllib
-
+from collections import OrderedDict
 import requests
 from flask import Flask, request
 
@@ -103,10 +103,10 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # })
 
-        data = {
-            "sender": {"id": APP_ID},
-            "recipient": {"id": recipient},
-            "message": {
+        data = OrderedDict()
+        data['sender'] = {"id": APP_ID}
+        data['recipient'] = {"id": recipient}
+        data['message'] = {
                 "is_echo": True,
                 "app_id": APP_ID,
                 "attachments": [{
@@ -116,7 +116,7 @@ def send_message(token, recipient, text):
                             }
                         }]
             }
-        }
+
         print("data: ", data)
 
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",

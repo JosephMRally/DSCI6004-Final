@@ -107,7 +107,6 @@ def send_message(token, recipient, text):
         data['sender'] = {"id": APP_ID}
         data['recipient'] = {"id": recipient}
         data['message'] = {
-                "text": "https:\/\/l.facebook.com",
                 "attachment": {
                     "type": "video",
                     "payload": {"url": "https:\/\/l.facebook.com"}

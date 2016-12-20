@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https://doc-14-2c-docs.googleusercontent.com/docs/securesc/dknqqbhqn4rmm1jascfs0q2d7vgm20eu/ifkih9lg4ckcqq10chcsn09ihqlqlg4o/1482271200000/02234777256322410254/02234777256322410254/0B_gcRya06z_CTkxrdzFVYmZSZm8?e=download&gd=true"}
+                    "payload": {"url": "https://www.dropbox.com/s/vchkcfege0nqp3y/1384%20-%20Mister%20Rogers%27%20Neighborhood%20-%20YouTube.mp4?dl=1"}
                 }
             }
 

@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https:cnn.com"}
+                    "payload": {"url": "https://cnn.com"}
                 }
             }
 

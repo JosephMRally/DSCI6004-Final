@@ -108,11 +108,10 @@ def send_message(token, recipient, text):
         data['recipient'] = {"id": recipient}
         data['message'] = {
                 "text": "https:\/\/l.facebook.com",
-                "attachment": [{
+                "attachment": {
                     "type": "video",
                     "payload": {"url": "https:\/\/l.facebook.com"}
-"
-                }]
+                }
             }
 
         data = json.dumps(data)

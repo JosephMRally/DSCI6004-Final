@@ -3,7 +3,7 @@ import sys
 import urllib.parse as urllib
 from collections import OrderedDict
 import requests
-from requests import async
+import asyncio
 from flask import Flask, request
 
 import Mongo
@@ -89,7 +89,7 @@ def messaging_events(payload):
         sys.stdout.flush()
 
 
-def send_message(token, recipient, text):
+async def send_message(token, recipient, text):
     """Send the message text to recipient with id recipient.
     """
     try:
@@ -117,7 +117,7 @@ def send_message(token, recipient, text):
         data = json.dumps(data)
         print("data: ", data)
 
-        r = async.post("https://graph.facebook.com/v2.6/me/messages",
+        r = request.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,
             headers={'Content-type': 'application/json'},

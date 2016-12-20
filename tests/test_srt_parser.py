@@ -5,7 +5,7 @@ from nose.tools import assert_equal, assert_not_equal
 import srt_parser
 
 
-class test__srt_parser(object):
+class test_srt_parser(object):
     parser = None
 
     def setup(self):

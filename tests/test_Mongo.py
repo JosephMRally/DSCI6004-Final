@@ -4,7 +4,7 @@ from nose.tools import assert_equal, assert_not_equal
 import Mongo
 import os
 
-class test__Mongo(object):
+class test_Mongo(object):
 
     def setup(self):
         self.db = Mongo.DB()

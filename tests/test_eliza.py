@@ -4,7 +4,7 @@ import srt_parser
 from engines import eliza
 
 
-class test__eliza(object):
+class test_eliza(object):
     obj = None # object to test
 
     def setup(self):

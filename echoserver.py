@@ -18,10 +18,11 @@ _db = Mongo.DB()
 PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1gYAn3dtJThtOUCMN1C2GVGAP8rjZADhY0mGqAoQvVphNPjT4GGjaVEkFbhKIcAKZATQTu7Bp73vBfZBQ5a77lWLuQzzVWM85FwgZDZD'
 APP_ID = 744391742366207
 
+# TODO: research whether flask can do classes?
+
 
 # TODO: factory pattern here to determine which engine to use
-#_engine = eliza.Eliza()
-_engine = mrrogers_tfidf.Mrrogers_Tfidf()
+_engine = None
 
 
 
@@ -64,6 +65,10 @@ def messaging_events(payload):
     """
     try:
         print("METHOD messaging_events")
+        # TODO: factory pattern here
+        if _engine == None: # lazy evaluation
+            _engine = mrrogers_tfidf.Mrrogers_Tfidf()
+
         data = json.loads(payload)
         _db.record_incoming_message(data) # record to the database
         messaging_events = data["entry"][0]["messaging"]

@@ -47,6 +47,7 @@ class TFIDF:
                 contents.extend([word])
             titles.append(episode.name)
             docs.append(contents)
+        print("Complete")
         return titles, docs
 
     def read_data(self, episodes):
@@ -111,7 +112,7 @@ class TFIDF:
             for d, val in d_dict.items():
                 tfidf_l2norm2[d] = tfidf_l2norm2.get(d, 0.0) + val ** 2
         self.tfidf_l2norm = dict((k,math.sqrt(v)) for k,v in tfidf_l2norm2.items())
-
+        print("Complete")
         # ------------------------------------------------------------------
 
     def get_tfidf(self, word, document):
@@ -159,6 +160,7 @@ class TFIDF:
                 inv_index[word][i].append(j)
 
         self.inv_index = inv_index
+        print("Complete")
         # ------------------------------------------------------------------
 
     def get_posting(self, word):

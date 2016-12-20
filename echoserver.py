@@ -3,6 +3,7 @@ import sys
 import urllib.parse as urllib
 from collections import OrderedDict
 import requests
+from requests import async
 from flask import Flask, request
 
 import Mongo
@@ -116,21 +117,21 @@ def send_message(token, recipient, text):
         data = json.dumps(data)
         print("data: ", data)
 
-        r = requests.post("https://graph.facebook.com/v2.6/me/messages",
+        r = async.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,
             headers={'Content-type': 'application/json'},
             timeout=60)
-        if r.status_code != requests.codes.ok:
-            print(r.text)
-
-        #record to database
-        # data = {
-        #     "recipient": {"id": recipient},
-        #     "message": {"text": text}
-        # }
-
-        _db.record_outgoing_message(dict(data)) # record message to the database
+        # if r.status_code != requests.codes.ok:
+        #     print(r.text)
+        #
+        # #record to database
+        # # data = {
+        # #     "recipient": {"id": recipient},
+        # #     "message": {"text": text}
+        # # }
+        #
+        # _db.record_outgoing_message(dict(data)) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

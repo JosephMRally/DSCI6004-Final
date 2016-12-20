@@ -109,7 +109,7 @@ def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https:\/\/l.facebook.com"}
+                    "payload": {"url": "https:cnn.com"}
                 }
             }
 
@@ -129,7 +129,7 @@ def send_message(token, recipient, text):
         #     "message": {"text": text}
         # }
 
-        _db.record_outgoing_message(data) # record message to the database
+        _db.record_outgoing_message(dict(data)) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

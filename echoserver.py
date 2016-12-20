@@ -110,7 +110,7 @@ async def send_message(token, recipient, text):
         data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https://www.dropbox.com/s/vchkcfege0nqp3y/1384%20-%20Mister%20Rogers%27%20Neighborhood%20-%20YouTube.mp4?dl=1"}
+                    "payload": {"url": "https://www.facebook.com/587721184763189/videos/596530243882283/"}
                 }
             }
 
@@ -122,16 +122,16 @@ async def send_message(token, recipient, text):
             data=data,
             headers={'Content-type': 'application/json'},
             timeout=60)
-        # if r.status_code != requests.codes.ok:
-        #     print(r.text)
-        #
-        # #record to database
-        # # data = {
-        # #     "recipient": {"id": recipient},
-        # #     "message": {"text": text}
-        # # }
-        #
-        # _db.record_outgoing_message(dict(data)) # record message to the database
+        if r.status_code != requests.codes.ok:
+             print(r.text)
+
+         #record to database
+         # data = {
+         #     "recipient": {"id": recipient},
+         #     "message": {"text": text}
+         # }
+
+         _db.record_outgoing_message(dict(data)) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

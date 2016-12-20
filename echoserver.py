@@ -22,7 +22,7 @@ APP_ID = 744391742366207
 
 
 # TODO: factory pattern here to determine which engine to use
-_engine = None
+_engine = mrrogers_tfidf.Mrrogers_Tfidf()
 
 
 
@@ -65,10 +65,6 @@ def messaging_events(payload):
     """
     try:
         print("METHOD messaging_events")
-        # TODO: factory pattern here
-        if _engine is None: # lazy evaluation
-            _engine = mrrogers_tfidf.Mrrogers_Tfidf()
-
         data = json.loads(payload)
         _db.record_incoming_message(data) # record to the database
         messaging_events = data["entry"][0]["messaging"]

@@ -99,24 +99,24 @@ def send_message(token, recipient, text):
 
         #make the request to facebook
 
-        # data = json.dumps({
-        #     "recipient": {"id": recipient},
-        #     "message": {"text": text}
-        # })
+        data = json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text}
+        })
 
-        data = OrderedDict()
-        data['sender'] = {"id": APP_ID}
-        data['recipient'] = {"id": recipient}
-        data['message'] = {
-                "attachment": {
-                    "type": "video",
-                    "payload": {"url": "https://secret-brushlands-90940.herokuapp.com/test.mp4"}
-                }
-            }
+        # data = OrderedDict()
+        # data['sender'] = {"id": APP_ID}
+        # data['recipient'] = {"id": recipient}
+        # data['message'] = {
+        #         "attachment": {
+        #             "type": "video",
+        #             "payload": {"url": "https://secret-brushlands-90940.herokuapp.com/test.mp4"}
+        #         }
+        #     }
 
         data = json.dumps(data)
         print("data: ", data)
-
+        
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",
             params={"access_token": token},
             data=data,

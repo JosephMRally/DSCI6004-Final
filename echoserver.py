@@ -107,12 +107,12 @@ def send_message(token, recipient, text):
         data = OrderedDict()
         data['sender'] = {"id": APP_ID}
         data['recipient'] = {"id": recipient}
-        data['message'] = [{
+        data['message'] = {
                 "attachment": {
                     "type": "video",
-                    "payload": {"url": "https://www.facebook.com/587721184763189/videos/596530243882283/"}
+                    "payload": {"url": "https://secret-brushlands-90940.herokuapp.com/test.mp4"}
                 }
-            }]
+            }
 
         data = json.dumps(data)
         print("data: ", data)

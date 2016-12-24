@@ -99,22 +99,22 @@ def send_message(token, recipient, text):
 
         #make the request to facebook
 
-        # data = json.dumps({
-        #     "recipient": {"id": recipient},
-        #     "message": {"text": text}
-        # })
+        data = json.dumps({
+            "recipient": {"id": recipient},
+            "message": {"text": text}
+        })
 
-        data = OrderedDict()
-        data['sender'] = {"id": APP_ID}
-        data['recipient'] = {"id": recipient}
-        data['message'] = {
-                "attachment": {
-                    "type": "video",
-                    "payload": {"url": "https://www.facebook.com/MrRogersChatbot/videos/596530243882283/"}
-                }
-            }
+        # data = OrderedDict()
+        # data['sender'] = {"id": APP_ID}
+        # data['recipient'] = {"id": recipient}
+        # data['message'] = {
+        #         "attachment": {
+        #             "type": "video",
+        #             "payload": {"url": "https://www.facebook.com/MrRogersChatbot/videos/596530243882283/"}
+        #         }
+        #     }
 
-        data = json.dumps(data)
+        # data = json.dumps(data)
         print("data: ", data)
 
         r = requests.post("https://graph.facebook.com/v2.6/me/messages",

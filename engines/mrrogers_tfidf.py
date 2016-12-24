@@ -75,7 +75,7 @@ class Mrrogers_Tfidf:
             response_message = [url]
         else:
             # else show a puppet show with an apology
-            response_message = ["Sorry I don't have an answer for you. Try 'popular questions'. In the meantime, enjoy this puppet show! https://youtube.com/embed/VyLgiPItJj0?autoplay=1&start=646&end=999"]
+            response_message = ["Sorry I don't know about that. Try 'tell me about purple panda'. In the meantime, enjoy this puppet show! https://youtube.com/embed/VyLgiPItJj0?autoplay=1&start=646&end=999"]
 
         # return the response
         response = random.choice(response_message)

@@ -14,8 +14,8 @@ class test_srt_parser(object):
 
     def test_parser(self):
         print("test_class_freq")
-        assert len(self.parser.episodes)==2
+        assert len(self.parser.episodes)==8
         assert len(self.parser.episodes[0].words_unaltered)>1000
-        assert self.parser.episodes[0].words_unaltered.startswith("Oh Oh it's a beautiful day in the neighborhood")
-        assert self.parser.episodes[0].words[0:5] == ['Oh', 'Oh', 'it', "'s",'a']
+        assert self.parser.episodes[0].words_unaltered.startswith("[Music] it's a beautiful day in this neighborhood")
+        assert self.parser.episodes[0].words[0:4] == ['Music', 'it', "'s",'a']
         assert self.parser.episodes[0].line_number[0:5] == [1, 2, 3, 4, 5]

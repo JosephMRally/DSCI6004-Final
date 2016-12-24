@@ -35,5 +35,5 @@ class test_tfidf(object):
 
         ranked = self.tf.query_rank("table")
         print(ranked)
-        assert len(ranked) == 1
+        assert len(ranked) == 2
 

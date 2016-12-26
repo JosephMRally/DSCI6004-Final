@@ -16,7 +16,7 @@ _db = Mongo.DB()
 
 # This needs to be filled with the Page Access Token that will be provided
 # by the Facebook App that will be created.
-PAT = 'EAAKlBTVgof8BAOmqh2lLJoRbnZAbO5uG2p0xe5MR8XjrOtDyogMxMabAs5XZCrthaqfpLeA1gYAn3dtJThtOUCMN1C2GVGAP8rjZADhY0mGqAoQvVphNPjT4GGjaVEkFbhKIcAKZATQTu7Bp73vBfZBQ5a77lWLuQzzVWM85FwgZDZD'
+PAT = 'EAAKlBTVgof8BAEGkpoP4wKchy6v4cQKTQi7lGX8W1ZCVo63Bz4aYyOOVXqqatnASU9mrtoa5OtXf197p58ZBFc5dROaAfGRQSYeTG9Vyd8WmiJSlS6QUI1ULiRsqvbZB2JGrrQH8APRT9feglEZBZBCdVG04kae1AH75yVvD7PwZDZD'
 APP_ID = 744391742366207
 
 # TODO: research whether flask can do classes?

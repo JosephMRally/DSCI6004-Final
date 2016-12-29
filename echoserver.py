@@ -129,9 +129,9 @@ def send_message(token, recipient, text):
          # data = {
          #     "recipient": {"id": recipient},
          #     "message": {"text": text}
-         # }
+         #
 
-         #_db.record_outgoing_message(dict(data)) # record message to the database
+         _db.record_outgoing_message(dict(data)) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

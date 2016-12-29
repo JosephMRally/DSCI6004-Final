@@ -6,16 +6,9 @@ import datetime
 from textblob import TextBlob
 import IR.PorterStemmer
 
+
 class Srt_Parser:
     # instance variables
-    """
-    episodes.name
-    episodes.words_unaltered
-    episodes.words
-    episodes.line_number
-    episodes.timing
-    episodes.youtubeurl
-    """
     episodes = None
     _path = os.getcwd()
     _p = IR.PorterStemmer.PorterStemmer()
@@ -26,7 +19,7 @@ class Srt_Parser:
         :param di_path: dependency-injection method to override path, for testing only
         """
         self.episodes = []
-        if (di_path!=None): self._path = di_path
+        if (di_path != None): self._path = di_path
         self._load_episodes()
 
     # instance methods
@@ -39,8 +32,8 @@ class Srt_Parser:
 
             #create our data structure to hold stuff
             #extract the name and you tube url
-            entry = Expando() # dynamic object - cuz i love prototype languages
-            x = filename.replace(".srt","").split("|")
+            entry = EpisodeEntry()
+            x = filename.replace(".srt", "").split("|")
             entry.name = x[0]
             entry.youtubeurl = x[1]
             self._transform_srt_to_tokens(entry, text)
@@ -49,15 +42,6 @@ class Srt_Parser:
     def _transform_srt_to_tokens(self, entry, srt_text_file, ):
         # goal is to have a format that is compatible with NLTK / spaCy / TextBlob
         # and still contain the timing info
-
-        # init 'entry'
-        entry.words_unaltered = "" # TODO: make this into a first class data structure
-
-        entry.words = []
-        entry.words_stemmed = [] # same size as .words
-        #entry.words_lemonized = [] # same size as .words
-        entry.line_number = [] # same size as .words
-        entry.timing = [] # (s_timing, t_timing)
 
         lines = srt_text_file.split("\n")
         for line_number, timing_info, text, line4 in zip(*[iter(lines)]*4):
@@ -72,6 +56,7 @@ class Srt_Parser:
 
             blob = TextBlob(text) #TODO: why is it splitting on "'s"
             words = blob.words
+            words = [_.lower() for _ in words]
 
             if len(words)>0: # sometimes no words
                 # special entry for the first word. record timing info
@@ -97,5 +82,18 @@ class Srt_Parser:
         # polish
         entry.words_unaltered = entry.words_unaltered.strip()
 
+
 class Expando(object):
     pass
+
+
+class EpisodeEntry(object):
+
+    def __init__(self):
+        self.words_unaltered = ""
+        self.words = []
+        self.words_stemmed = []  # same size as .words
+        self.line_number = []  # same size as .words
+        self.timing = []  # (s_timing, t_timing)
+        self.name = ""
+        self.youtubeurl = ""

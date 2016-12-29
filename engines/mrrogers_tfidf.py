@@ -44,7 +44,7 @@ class Mrrogers_Tfidf:
         # Match user's input to responses in psychobabble. Then reflect candidate response."
         responses = self._tfidf.query_rank(statement)
 
-        # if we have a query use if
+        # if we have a query use it
         if len(responses)>0:
             item = responses[0]
             document_id = item[0]
@@ -53,7 +53,7 @@ class Mrrogers_Tfidf:
 
             # retrieve the document
             document_of_episode = self._corpus.episodes[document_id]
-            indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words_stemmed) if value==response_word]
+            indexes_of_response_word = [n for n, value in enumerate(document_of_episode.words_stemmed) if value == response_word] # TODO: this is not completely right. see bug test_analyze_tabl
             index_of_response_word = random.choice(indexes_of_response_word)
             timing_of_segment = document_of_episode.timing[index_of_response_word]
             dt_start_time = timing_of_segment[0]

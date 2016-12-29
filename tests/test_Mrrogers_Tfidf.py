@@ -8,6 +8,7 @@ import os
 import srt_parser
 import engines.mrrogers_tfidf
 
+
 class test_Mrrogers_Tfidf(object):
 
     def setup(self):
@@ -16,24 +17,20 @@ class test_Mrrogers_Tfidf(object):
 
     def test_analyze_zero(self):
         x = self.engine.analyze("zero")
-        assert(x.startswith(r"Sorry I don't have an answer for you."))
+        assert (x.startswith(r"Sorry I don't have an answer for you.")), x
 
     def test_analyze_plants(self):
         x = self.engine.analyze("plants")
-        assert(x.startswith(r"https://youtube.com/embed/"))
+        assert (x.startswith(r"https://youtube.com/embed/")), x
 
 
     def test_analyze_table(self):
         x = self.engine.analyze("table")
-        assert (x.startswith(r"https://youtube.com/embed/VyLgiPItJj0"))
+        assert (x.startswith(r"https://youtube.com/embed/VyLgiPItJj0")), x
 
 
-    # def test_analyze_tabl(self): # TODO: this one should be a no hit
-    #     x = self.engine.analyze("tabl")
-    #     assert (x.startswith(r"Sorry I don't have an answer for you.")), x
-
-    def test_analyze_kitty(self):
-        x = self.engine.analyze("kitty")
+    def test_analyze_tabl(self):
+        x = self.engine.analyze("tabl")
         assert (x.startswith(r"Sorry I don't have an answer for you.")), x
 
 

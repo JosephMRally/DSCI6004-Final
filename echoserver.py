@@ -132,7 +132,8 @@ def send_message(token, recipient, text):
          #
 
         data = json.loads(data)
-         _db.record_outgoing_message(dict(data)) # record message to the database
+        data = dict(data)
+        _db.record_outgoing_message(data) # record message to the database
     except Exception as err:
         print("Exception! method: send_message")
         print(str(err))

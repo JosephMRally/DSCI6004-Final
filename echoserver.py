@@ -31,7 +31,7 @@ _engine = mrrogers_tfidf.Mrrogers_Tfidf()
 def handle_verification():
     # http://localhost:5000?hub.verify_token=my_voice_is_my_password_verify_me&
     print("Handling Verification.")
-    if request.args.get('hub.verify_token', '') == 'my_voice_is_my_password_verify_me':
+    if request.args.get('hub.verify_token', '') == '109c2417637624e15b731e5119b94096':
         print("Verification successful!")
         return request.args.get('hub.challenge', '')
     else:

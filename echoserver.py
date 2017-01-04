@@ -29,7 +29,9 @@ _engine = mrrogers_tfidf.Mrrogers_Tfidf()
 
 @app.route('/', methods=['GET'])
 def handle_verification():
+    # https://tsaprailis.com/2016/06/02/How-to-build-and-deploy-a-Facebook-Messenger-bot-with-Python-and-Flask-a-tutorial/
     # http://localhost:5000?hub.verify_token=my_voice_is_my_password_verify_me&
+    # webhooks disabled = Subscribed pages: Mr Rogers Neighborhood Video Chatbot
     print("Handling Verification.")
     if request.args.get('hub.verify_token', '') == '109c2417637624e15b731e5119b94096':
         print("Verification successful!")

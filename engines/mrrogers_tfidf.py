@@ -40,6 +40,8 @@ class Mrrogers_Tfidf:
             return self._command_hello()
         if "credits" in statement:
             return self._command_credits()
+        if "popular words" in statement:
+            return self._command_popular_words()
 
         # Match user's input to responses in psychobabble. Then reflect candidate response."
         responses = self._tfidf.query_rank(statement)
@@ -117,7 +119,7 @@ class Mrrogers_Tfidf:
 
     def _command_help(self):
         s = "Try words 'episodes', 'transcript of episode (XX)'," \
-            "'popular questions', 'history', 'credits'. "
+            "'popular words', 'history', 'credits'. "
         return s
 
     def _command_hello(self):
@@ -131,5 +133,15 @@ class Mrrogers_Tfidf:
 
     def _command_credits(self):
         s = "This project initially started by my final project for NLP and AI classes. Thanks for the support. Joseph Miguel"
+        return s
+
+    def _command_popular_words(self):
+        result = self._tfidf.get_vocab_with_score()
+        result = result[0:25]  # only take the first 25
+        result = [(_[0][0], list(_[0][1][1].keys())[0]) for _ in result]  # hack bad data structure. tulip of document id & stemmed word
+        result = [(_[0], self._corpus.episodes[_[0]].words_stemmed.index(_[1])) for _ in result]  # hack
+        result = [(_[0], self._corpus.episodes[_[0]].words[_[1]]) for _ in result]  # hack
+        result = [k[1] for k in result]  # hack
+        s = " ".join(result)
         return s
 

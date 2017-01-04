@@ -19,6 +19,7 @@ class TFIDF:
         self.re_alphanum = re.compile(r'[^a-zA-Z0-9]')
         self.p = IR.PorterStemmer.PorterStemmer()
 
+    # private?
     def get_uniq_words(self):
         uniq = set()
         for doc in self.docs:
@@ -50,6 +51,7 @@ class TFIDF:
         print("Complete")
         return titles, docs
 
+    # private?
     def read_data(self, episodes):
         """
         Given the location of the 'data' directory, reads in the documents to
@@ -82,6 +84,7 @@ class TFIDF:
         # Get the vocabulary.
         self.vocab = [xx for xx in self.get_uniq_words()]
 
+    # public
     def compute_tfidf(self):
         # -------------------------------------------------------------------
         # TODO: Compute and store TF-IDF values for words and documents.
@@ -115,6 +118,7 @@ class TFIDF:
         print("Complete")
         # ------------------------------------------------------------------
 
+    # private?
     def get_tfidf(self, word, document):
         # ------------------------------------------------------------------
         # TODO: Return the tf-idf weighting for the given word (string) and
@@ -122,6 +126,7 @@ class TFIDF:
         return self.tfidf[word][document]
         # ------------------------------------------------------------------
 
+    # private?
     def get_tfidf_unstemmed(self, word, document):
         """
         This function gets the TF-IDF of an *unstemmed* word in a document.
@@ -131,6 +136,7 @@ class TFIDF:
         word = self.p.stem(word)
         return self.get_tfidf(word, document)
 
+    # private?
     def index(self):
         """
         Build an index of the documents.
@@ -163,6 +169,7 @@ class TFIDF:
         print("Complete")
         # ------------------------------------------------------------------
 
+    # private?
     def get_posting(self, word):
         """
         Given a word, this returns the list of document indices (sorted) in
@@ -173,6 +180,7 @@ class TFIDF:
         return self.inv_index[word].keys()
         # ------------------------------------------------------------------
 
+    # private?
     def get_posting_unstemmed(self, word):
         """
         Given a word, this *stems* the word and then calls get_posting on the
@@ -182,6 +190,7 @@ class TFIDF:
         word = self.p.stem(word)
         return self.get_posting(word)
 
+    # private?
     def boolean_retrieve(self, query):
         """
         Given a query in the form of a list of *stemmed* words, this returns
@@ -200,6 +209,7 @@ class TFIDF:
         return matches
         # ------------------------------------------------------------------
 
+    # private?
     def rank_retrieve(self, query):
         """
         Given a query (a list of words), return a rank-ordered list of
@@ -233,6 +243,7 @@ class TFIDF:
         result = [(k,v) for v,k in heapq.nlargest(10,scores) if v[0]>0] # Return top 10 scores and scores of zero
         return result
 
+    # private?
     def process_query(self, query_str):
         """
         Given a query string, process it and return the list of lowercase,
@@ -248,6 +259,7 @@ class TFIDF:
         query = [self.p.stem(xx) for xx in query]
         return query
 
+    # private?
     def query_retrieve(self, query_str):
         """
         Given a string, process and then return the list of matching documents
@@ -256,6 +268,23 @@ class TFIDF:
         query = self.process_query(query_str)
         return self.boolean_retrieve(query)
 
+
+
+    # public method
+    def get_vocab_with_score(self):
+        """
+        return a sorted rank-ordered list of all words in it's vocab
+        documents (by ID) and score for the query.
+
+        return <tuple> (document_id, <tuple>(total score, score of each word))
+        return <class 'tuple'>: (1, (0.14681049969648288, {'almost': 0.4446578049034344, 'adult': 0.3916490539534377}))
+        """
+        result = [self.query_rank(_) for _ in self.vocab]
+        result = [_ for _ in result if len(_)>0] # workaround, list entries should never be len()==0
+        result = sorted(result, key=lambda x:x[0][1][0], reverse=True) # sorted off total score
+        return result
+
+    # public method
     def query_rank(self, query_str):
         """
         Given a string, process and then return the list of the top matching

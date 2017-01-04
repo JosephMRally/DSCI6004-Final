@@ -34,3 +34,15 @@ class test_Mrrogers_Tfidf(object):
         assert (x.startswith(r"Sorry I don't have an answer for you.")), x
 
 
+    def test_analyze_kitten(self):
+        x = self.engine.analyze("kitten")
+        assert (x.startswith(r"Sorry I don't have an answer for you.")), x
+
+
+    def test_popular_words(self):
+        x = self.engine.analyze("popular words")
+        print(x)
+        assert x != ""
+        assert x.startswith('cereal shoe orange'), x
+        assert x.endswith('tape lambs random'), x # TODO: why is this not a constant answer, it should be deterministic
+        assert x == "cereal shoe orange serial snow juice globe ingredients purple practice sifter mixture string quartet jimmy puppets panda tape bins pipes lambs hopper 0 dough random"
